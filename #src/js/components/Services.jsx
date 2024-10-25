@@ -36,8 +36,9 @@ export const Services = () => {
 				animationSvgText(target, true);
 			}, 500);
 		};
-		const boxImages = document.querySelectorAll('.services-slide__image');
-		boxImagesRef.current = boxImages; // Сохраняем ссылку на элементы в useRef
+		const boxImages = Array.from(document.querySelectorAll(
+			'.services-slide__image'));
+		boxImagesRef.current = boxImages;// Сохраняем ссылку на элементы в useRef
 		boxImages.forEach(boxImage => {
 			boxImage.addEventListener('mouseover', handleMouseOver);
 			boxImage.addEventListener('mouseleave', handleMouseLeave);

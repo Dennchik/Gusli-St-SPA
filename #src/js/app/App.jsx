@@ -1,84 +1,69 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Layout } from '../layouts/Layout.jsx';
 import { Homepage } from '../pages/Homepage.jsx';
 import { AboutPage } from '../pages/AboutPage.jsx';
-import ScrollToTop from '../assets/ScrollToTop.jsx';  // Импортируем компонент
-import { gsap } from 'gsap';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-//* ----------------------------------------------------------------------------
+import { ScrollToTop } from '../assets/ScrollToTop.jsx';
+import {
+	animateTitles,
+	applyParallaxEffects,
+	createSmoother,
+	destroySmoother,
+	tlFooterHorizontal,
+	tlFooterParallel,
+	tlServices1,
+	tlServices2
+} from '../animations/smoothEffects';
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-ScrollTrigger.normalizeScroll(false);
-ScrollTrigger.config({ignoreMobileResize: true});
 export default function App() {
 	const location = useLocation();
 	const [initialPositions, setInitialPositions] = useState(null);
+	let smoother;
 
 	useEffect(() => {
-		const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-		let smoother;
+		//* Создаем ScrollSmoother только на ПК
+		smoother = createSmoother(initialPositions);
 
-		if (!isMobile) {
-			smoother = ScrollSmoother.create({
-				wrapper: '#wrapper',
-				content: '#content',
-				smooth: 2,
-				effects: true,
-				normalizeScroll: true,
-				// ignoreMobile: true,
-			});
-			//* Принудительно сбрасываем прокрутку при смене маршрута
-			smoother.scrollTop(0, true);  // Сбрасываем прокрутку плавно
+		if (smoother) {
+			//* Применяем эффекты параллакса только если smoother создан
+			applyParallaxEffects(smoother, '.parallax');
 		}
 
-		if (!isMobile) {
-			console.log('no mobile');
-
-			//* Пересоздаем эффекты для колонок
-			smoother.effects('.services-slide__column', {
-				speed: (i) => {
-					if (initialPositions) {
-						const position = initialPositions[i];
-						return position ? position.speed : 1.5;
-					}
-					return 1.5;
-				}
-			});
-			// applyParallaxEffects(smoother, '.parallax');
-
-			smoother.effects('.parallax', {
-				speed: (i) => {
-					return i % 1 === 0 ? 0.5 : 1.15;
-				}
-			});
-
-		}
 		return () => {
+			//* Уничтожаем ScrollSmoother при размонтировании
 			if (smoother) {
-				smoother.kill(); // Убедитесь, что вы убиваете экземпляр при
-			                   // размонтировании
+				destroySmoother(smoother);
 			}
 		};
 	}, [initialPositions, location.pathname]);
+
 	useEffect(() => {
-		//* Сохраняем начальные позиции элементов при первой загрузке страницы
+		// Сохраняем начальные позиции элементов при первой загрузке
 		if (!initialPositions) {
 			const columns = document.querySelectorAll(
 				'.services-slide__column');
-			const positions = Array.from(columns).map((_, i) => ({
-				speed: i % 2 === 0 ? 0.9 : 1.15 // Укажите здесь правильное
-				// позиционирование элементов
+			const positions = Array.from(columns).map((
+				_, i) => ({
+				speed: i % 2 === 0 ? 0.9 : 1.15, // Позиционирование элементов
 			}));
 			setInitialPositions(positions);
 		}
 	}, [initialPositions, location.pathname]);
+	useEffect(() => {
+		animateTitles('.services__title', '.services__title',
+			'.services__title', '=150', '=150');
+		animateTitles('.offer-container__title', '.offer-container__title',
+			'.offer-container__title', '=150', '=150');
+		tlServices1();
+		tlServices2();
+		tlFooterParallel();
+		tlFooterHorizontal();
+	}, []);
 
 
 	return (
 		<>
-			<ScrollToTop/> {/* Добавляем компонент для сброса прокрутки */}
+			<ScrollToTop/>
 			<Routes>
 				<Route path="/"
 				       element={<Layout/>}>

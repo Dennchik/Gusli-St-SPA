@@ -5,11 +5,13 @@ import { Services } from '../components/Services.jsx';
 import { Footer } from '../components/Footer.jsx';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
-//* ----------------------------------------------------------------------------
+
 export const Homepage = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);// Сброс прокрутки при рендеринг страницы
 	}, []); // Этот эффект выполнится один раз при монтировании страницы
+
+	
 	return (
 		<>
 			<section className="main-content__slide">

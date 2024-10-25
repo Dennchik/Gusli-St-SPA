@@ -79,10 +79,10 @@ export const About = () => {
 			<div className="about__bg-image _ibg">
 				<picture>
 					{isWebpSupported()
-						? <img src={'../img/about/ab-img-01.webp'}
+						? <img src={'./img/about/ab-img-01.webp'}
 						       type="image/webp"
 						       alt="image"/>
-						: <img src={'../img/about/ab-img-01.png'}
+						: <img src={'./img/about/ab-img-01.png'}
 						       alt="image"/>}
 				</picture>
 			</div>
