@@ -1,6 +1,6 @@
-import { gsap } from 'gsap';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {gsap} from 'gsap';
+import {ScrollSmoother} from 'gsap/ScrollSmoother';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
 //* ------------- Регистрация - ScrollTrigger, ScrollSmoother ------------------
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -78,7 +78,7 @@ export function animateTitles(element, trigger, endTrigger, start, end) {
 			endTrigger: endTrigger,
 			end: `top-=100 bottom-${end}`,
 			toggleActions: 'play none none reverse',
-			markers: true,
+			// markers: true,
 		},
 	});
 
@@ -235,11 +235,13 @@ export function tlFooterHorizontal() {
 export function initSectionTriggerMove(trigger, targets) {
 	ScrollTrigger.create({
 		trigger: trigger,
-		start: 'top center', //* Начинаем событие, когда верхняя граница
-		// элемента-1 находится на 100px ниже верха окна браузера
-		endTrigger: trigger, // Конец события - конец документа
-		end: 'bottom center', // Закончить событие, когда верхняя граница элемента
-	                        // 1 достигнет верха окна браузера
+		/* начинаем событие, когда верхняя граница элемента-1 находится на 100px
+		 ниже верха окна браузера */
+		start: 'top center',
+		endTrigger: trigger, //* Конец события - конец документа
+		/* Закончить событие, когда верхняя граница элемента 1 достигнет верха
+		 окна браузера */
+		end: 'bottom center',
 		toggleClass: {
 			targets: targets,
 			className: 'active'

@@ -1,11 +1,12 @@
 @use '../core/all' as *;
+@use '../core/mixins';
 
 .about-company {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 	width: 100%;
-	gap: 4rem;
 	padding-top: 4rem;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 4rem;
 
 	@include minmax-690-920 {
 		grid-template-columns: 1fr 1fr;
@@ -36,8 +37,8 @@
 	// .about-company__body
 	&__body {
 		display: flex;
-		flex-direction: column;
 		flex: 1 1 auto;
+		flex-direction: column;
 		border-bottom: 1px solid #9999992c;
 	}
 
@@ -80,10 +81,10 @@
 
 	// .about-company__item-services
 	&__item-services {
-		flex-wrap: nowrap;
-		padding: 2.5rem 0;
 		display: flex;
 		align-items: center;
+		flex-wrap: nowrap;
+		padding: 2.5rem 0;
 		gap: 2rem;
 
 		&:not(:last-child) {
@@ -92,8 +93,8 @@
 
 		[class*='icon-'] {
 			&::before {
-				cursor: pointer;
 				font-size: 3.2rem;
+				cursor: pointer;
 				color: $gray;
 			}
 		}
@@ -105,20 +106,20 @@
 
 	// .about-company__button
 	&__button {
+		font-weight: 500;
 		display: block;
 		width: fit-content;
 		padding: 1rem 2rem;
-		background-color: #3d3d3d;
-		border-radius: 4px;
-		font-weight: 500;
-		text-transform: uppercase;
-		text-shadow: 1px 1px 2px #000;
 		transition: color 0.4s,
 		background 0.4s ease-in-out;
+		text-transform: uppercase;
+		border-radius: 4px;
+		background-color: #3d3d3d;
+		text-shadow: 1px 1px 2px #000;
 
 		&:hover {
-			background: #392b7c;
 			color: #392b7c;
+			background: #392b7c;
 		}
 
 		@include screen-375 {
@@ -131,9 +132,9 @@
 	&__team-items {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
 		justify-content: space-between;
 		height: 100%;
+		gap: 2rem;
 	}
 }
 
@@ -146,20 +147,20 @@
 
 	// .team-mates__image
 	&__image {
+		overflow: hidden;
 		width: 104px;
 		height: 104px;
-		border-radius: 5px;
-		overflow: hidden;
-		box-shadow: 3px 3px 10px #000;
 		margin-right: 2rem;
 		opacity: 0.5;
+		border-radius: 5px;
+		box-shadow: 3px 3px 10px #000;
 	}
 
 	// .team-mates__name
 	&__name {
 		font-size: 1.6rem;
-		color: $neon-blue-dark;
 		margin-bottom: 1rem;
+		color: $neon-blue-dark;
 	}
 
 	// .team-mates__text
