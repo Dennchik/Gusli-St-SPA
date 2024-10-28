@@ -1,19 +1,26 @@
-import {gsap} from 'gsap';
-import {ScrollSmoother} from 'gsap/ScrollSmoother';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 //* ------------- Регистрация - ScrollTrigger, ScrollSmoother ------------------
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 //* --------------------- Конфигурация - ScrollTrigger -------------------------
 ScrollTrigger.normalizeScroll(false);
-ScrollTrigger.config({ignoreMobileResize: true});
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 //* ------------------- Проверка на мобильное устройство -----------------------
 export function isMobile() {
 	return /Mobi|Android/i.test(navigator.userAgent);
 }
 
+export const initScroll = (options) => {
+	ScrollSmoother.create({
+		content: '#content',
+		smooth: options.smooth,
+		speed: options.speed,
+	});
+};
 //* ----------------------- Создание ScrollSmoother ----------------------------
 export function smoother() {
 	return ScrollSmoother.create({
@@ -23,6 +30,11 @@ export function smoother() {
 		effects: true,
 		normalizeScroll: true,
 	});
+}
+
+//* ----------------------- Создание ScrollTrigger -----------------------------
+export function refreshScrollTrigger() {
+	return ScrollTrigger.refresh();
 }
 
 //* --------------- Инициализация ScrollSmoother с эффектами -------------------
@@ -52,7 +64,7 @@ export function createSmoother(
 	return initSmoother;
 }
 
-//* ---------------------- Уничтожение ScrollSmoother --------------------------
+//* -------------------- Уничтожение ScrollSmoother ----------------------------
 export function destroySmoother(initSmoother) {
 	if (initSmoother) {
 		/* Уничтожаем экземпляр ScrollSmoother при размонтировании */
@@ -60,9 +72,9 @@ export function destroySmoother(initSmoother) {
 	}
 }
 
-//* -------------------- Применение параллакс-эффектов -------------------------
+//* ------------------- Применение параллакс-эффектов --------------------------
 export function applyParallaxEffects(initSmoother, element) {
-	initSmoother.effects(element, {
+	smoother().effects(element, {
 		speed: (i) => {
 			return i % 1 === 0 ? 0.5 : 1.15;
 		}
@@ -232,20 +244,20 @@ export function tlFooterHorizontal() {
 }
 
 //* ----------------------------------------------------------------------------
-export function initSectionTriggerMove(trigger, targets) {
-	ScrollTrigger.create({
-		trigger: trigger,
-		/* начинаем событие, когда верхняя граница элемента-1 находится на 100px
-		 ниже верха окна браузера */
-		start: 'top center',
-		endTrigger: trigger, //* Конец события - конец документа
-		/* Закончить событие, когда верхняя граница элемента 1 достигнет верха
-		 окна браузера */
-		end: 'bottom center',
-		toggleClass: {
-			targets: targets,
-			className: 'active'
-		},
-		// markers: true
-	});
-}
+// export function initSectionTriggerMove(trigger, targets) {
+// 	ScrollTrigger.create({
+// 		trigger: trigger,
+// 		/* начинаем событие, когда верхняя граница элемента-1 находится на 100px
+// 		 ниже верха окна браузера */
+// 		start: 'top center',
+// 		endTrigger: trigger, //* Конец события - конец документа
+// 		/* Закончить событие, когда верхняя граница элемента 1 достигнет верха
+// 		 окна браузера */
+// 		end: 'bottom center',
+// 		toggleClass: {
+// 			targets: targets,
+// 			className: 'active'
+// 		},
+// 		// markers: true
+// 	});
+// }
