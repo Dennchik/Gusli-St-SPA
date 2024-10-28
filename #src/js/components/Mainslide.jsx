@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { fadeInSlide } from '../animations/anime-js.jsx';
-import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
+import React, {useEffect} from 'react';
+import {fadeInSlide} from '../animations/anime-js.js';
+import {isWebpSupported} from 'react-image-webp/dist/utils/index.js';
 //* ------------------------ Component's Mainslide -----------------------------
-import { buildSwiper } from '../layouts/build-swiper.jsx';
-import { mainSlide } from '../assets/main-slide.jsx';
-import { AudioPlayer } from './AudioPlayer.jsx';
+import {buildSwiper} from '../layouts/build-swiper.jsx';
+import {mainSlide} from '../assets/main-slide.jsx';
+import {AudioPlayer} from './AudioPlayer.jsx';
 import PropTypes from 'prop-types';
 
 export const MainSlide = ({baseUrl}) => {
@@ -20,7 +20,8 @@ export const MainSlide = ({baseUrl}) => {
 
 		// Проверяем активен ли первый слайд при загрузке страницы
 		const firstSlideWrapper = slideWrappers[0];
-		const isActive = firstSlideWrapper.classList.contains('swiper-slide-active');
+		const isActive = firstSlideWrapper.classList.contains(
+			'swiper-slide-active');
 
 		if (isActive) {
 			// Если первый слайд активен, запускаем анимацию
@@ -33,7 +34,8 @@ export const MainSlide = ({baseUrl}) => {
 				mutations) => {
 				mutations.forEach((mutation) => {
 					if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-						const isActive = slideWrapper.classList.contains('swiper-slide-active');
+						const isActive = slideWrapper.classList.contains(
+							'swiper-slide-active');
 						if (isActive) {
 							// Если слайд-контейнер содержит класс 'swiper-slide-active',
 							// запускаем анимацию
@@ -63,9 +65,9 @@ export const MainSlide = ({baseUrl}) => {
 						<picture> {
 							isWebpSupported()
 								? <img src={getPath('@@webRoot/img/main/slides/slide_1.webp')}
-								       alt="slide-1"/>
+											 alt="slide-1"/>
 								: <img src={getPath('@@webRoot/img/main/slides/slide_1.jpg')}
-								       alt="slide-1"/>
+											 alt="slide-1"/>
 						}
 						</picture>
 					</div>
@@ -88,9 +90,9 @@ export const MainSlide = ({baseUrl}) => {
 						<picture>
 							{isWebpSupported()
 								? <img src={getPath('@@webRoot/img/main/slides/slide_4.webp')}
-								       alt="slide-4"/>
+											 alt="slide-4"/>
 								: <img src={getPath('@@webRoot/img/main/slides/slide_4.jpg')}
-								       alt="slide-4"/>}
+											 alt="slide-4"/>}
 						</picture>
 					</div>
 					<div className="main-slide__content _container">
@@ -113,9 +115,9 @@ export const MainSlide = ({baseUrl}) => {
 						<picture>
 							{isWebpSupported()
 								? <img src={getPath('@@webRoot/img/main/slides/slide_2.webp')}
-								       alt="slide-2"/>
+											 alt="slide-2"/>
 								: <img src={getPath('@@webRoot/img/main/slides/slide_2.jpg')}
-								       alt="slide-2"/>}
+											 alt="slide-2"/>}
 						</picture>
 					</div>
 					<div className="main-slide__content _container">
@@ -134,9 +136,9 @@ export const MainSlide = ({baseUrl}) => {
 						<picture>
 							{isWebpSupported()
 								? <img src={getPath('@@webRoot/img/main/slides/slide_3.webp')}
-								       alt="slide-3"/>
+											 alt="slide-3"/>
 								: <img src={getPath('@@webRoot/img/main/slides/slide_3.jpg')}
-								       alt="slide-3"/>}
+											 alt="slide-3"/>}
 						</picture>
 					</div>
 					<div className="main-slide__content _container">

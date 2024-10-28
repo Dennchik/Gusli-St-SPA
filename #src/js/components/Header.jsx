@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-scroll';
-import { timeLineHeaderItem } from '../animations/anime-js.jsx';
-import { CustomLink } from '../assets/CustomLink.jsx';
+import React, {useEffect} from 'react';
+import {Link} from 'react-scroll';
+import {timeLineHeaderItem} from '../animations/anime-js.js';
+import {CustomLink} from '../assets/CustomLink.jsx';
 
 export const Header = () => {
 	const handleScroll = () => {
@@ -53,39 +53,39 @@ export const Header = () => {
 							</div>
 							<div className="header__item header__item--services">
 								<Link className="header__link-key link-key--services"
-								      to="services"
-								      duration={500}
-								      offset={-100}
-								      smooth='easeInQuad'
+											to="services"
+											duration={500}
+											offset={-100}
+											smooth='easeInQuad'
 								>
 									<span>Услуги</span>
 								</Link>
 							</div>
 							<div className="header__item">
 								<CustomLink className="header__link-key"
-								            to='/video'>
+														to='/video'>
 									<span>Видео</span>
 								</CustomLink>
 							</div>
 							<div className="header__item">
 								<CustomLink className="header__link-key"
-								            to='/about'>
+														to='/about'>
 									<span>Компания</span>
 								</CustomLink>
 							</div>
 							<div className="header__item">
 								<CustomLink className="header__link-key"
-								            to='/news'>
+														to='/news'>
 									<span>Новости</span>
 								</CustomLink>
 							</div>
 							<div className="header__item header__item--contacts">
 								<Link className="header__link-key link-key--contacts"
-								      to="footer"
-								      duration={500}
-								      offset={-100}
-								      isDynamic={true}
-								      smooth='easeInQuad'
+											to="footer"
+											duration={500}
+											offset={-100}
+											isDynamic={true}
+											smooth='easeInQuad'
 								>
 									<span>Контакты</span>
 								</Link>
@@ -94,7 +94,7 @@ export const Header = () => {
 					</div>
 					<div className="header__column el-community">
 						<a href='tel:++79106044424'
-						   className="el-community__phone">
+							 className="el-community__phone">
 							<i className='icon-phone-ringing'></i>
 							<div className="el-community__content">
 								<h5 className='el-community__title'>GIVE US A CALL</h5>
