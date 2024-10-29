@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-scroll';
 import {timeLineHeaderItem} from '../animations/anime-js.js';
-import {CustomLink} from '../assets/CustomLink.jsx';
+import {CustomLink} from '../assets/CustomLink.js';
+
 
 export const Header = () => {
 	const handleScroll = () => {

@@ -1,20 +1,20 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Header } from '../components/Header.jsx';
+import {Outlet} from 'react-router-dom';
+import {HeaderCopy} from '../components/Header-copy.jsx';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
 export const Layout = () => {
 	return (
 		<>
 			<header className='page__header'>
-				<Header baseUrl={baseUrl}/>
+				<HeaderCopy baseUrl={baseUrl}/>
 			</header>
 
 			<main className="page__main-content">
 				<div className="main-content"
-				     id='wrapper'>
+						 id='wrapper'>
 					<div className="main-content__content"
-					     id='content'>
+							 id='content'>
 						<Outlet/>
 					</div>
 				</div>

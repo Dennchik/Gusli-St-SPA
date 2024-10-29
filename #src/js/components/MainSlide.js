@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {fadeInSlide} from '../animations/anime-js.js';
 import {isWebpSupported} from 'react-image-webp/dist/utils/index.js';
-//* ------------------------ Component's Mainslide -----------------------------
-import {buildSwiper} from '../layouts/build-swiper.jsx';
-import {mainSlide} from '../assets/main-slide.jsx';
-import {AudioPlayer} from './AudioPlayer.jsx';
+//* ------------------------ Component's MainSlide -----------------------------
+import {buildSwiper} from '../layouts/build-swiper.js';
+import {mainSlide} from '../assets/main-slide.js';
+import {AudioPlayer} from './AudioPlayer.js';
 import PropTypes from 'prop-types';
 
 export const MainSlide = ({baseUrl}) => {

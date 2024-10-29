@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import audio from '../assets/audio-player.jsx';
+import React, {useEffect} from 'react';
+import audio from '../assets/audio-player.js';
 
 export const AudioPlayer = ({progress}) => {
 	useEffect(() => {
@@ -34,7 +34,7 @@ export const AudioPlayer = ({progress}) => {
 				</div>
 				<div className="audio-player__timeline">
 					<div className="audio-player__progress"
-					     style={{width: `${progress}%`}}></div>
+							 style={{width: `${progress}%`}}></div>
 				</div>
 			</div>
 			{/* </figure> */}

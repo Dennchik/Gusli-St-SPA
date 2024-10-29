@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import {MainSlide} from '../components/Mainslide.jsx';
-import {Services} from '../components/Services.jsx';
-import {Footer} from '../components/Footer.jsx';
+import {MainSlide} from '../components/Mainslide.js';
+import {Services} from '../components/Services.js';
+import {Footer} from '../components/Footer.js';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
 
-export const Homepage = () => {
+export const HomePage = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);// Сброс прокрутки при рендеринг страницы
 	}, []); // Этот эффект выполнится один раз при монтировании страницы

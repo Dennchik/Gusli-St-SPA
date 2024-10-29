@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Route, Routes, useLocation} from 'react-router-dom';
 import {
 	animateTitles,
 	// applyParallaxEffects,
 	initScroll,
-	createSmoother,
+	// createSmoother,
 	destroySmoother,
 	refreshScrollTrigger,
 	tlFooterHorizontal,
 	tlFooterParallel,
 	tlServices1,
 	tlServices2,
-} from '../animations/smoothEffects.jsx';
-import { ScrollToTop } from '../assets/ScrollToTop.jsx';
-import { Layout } from '../layouts/Layout.jsx';
-import { AboutPage } from '../pages/AboutPage.jsx';
-import { Homepage } from '../pages/Homepage.jsx';
+} from '../animations/smoothEffects.js';
+import {ScrollToTop} from '../assets/ScrollToTop.js';
+import {Layout} from '../layouts/Layout.jsx';
+import {AboutPage} from '../pages/AboutPage.jsx';
+import {HomePage} from '../pages/HomePage.js';
 
 export default function App() {
 	const location = useLocation();
@@ -23,7 +23,7 @@ export default function App() {
 	let smoother;
 	const handleScroll = () => {
 		// Вызов плавной прокрутки документа
-		initScroll({ smooth: 1.2, speed: 0.5 });
+		initScroll({smooth: 1.2, speed: 0.5});
 	};
 	useEffect(() => {
 		// 	//* Создаем ScrollSmoother только на ПК
@@ -86,11 +86,11 @@ export default function App() {
 
 	return (
 		<>
-			<ScrollToTop />
+			<ScrollToTop/>
 			<Routes>
-				<Route path="/" element={<Layout />}>
-					<Route path="/" element={<Homepage />} />
-					<Route path="/about" element={<AboutPage />} />
+				<Route path="/" element={<Layout/>}>
+					<Route path="/" element={<HomePage/>}/>
+					<Route path="/about" element={<AboutPage/>}/>
 				</Route>
 			</Routes>
 		</>

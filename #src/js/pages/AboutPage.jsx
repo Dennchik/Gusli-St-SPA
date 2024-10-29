@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {About} from '../components/About.jsx';
-import {Footer} from '../components/Footer.jsx';
+import {About} from '../components/About.js';
+import {Footer} from '../components/Footer.js';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
 //* ----------------------------------------------------------------------------

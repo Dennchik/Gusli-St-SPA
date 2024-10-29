@@ -2,8 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import {Element} from 'react-scroll';
 import {animationSvgLine, animationSvgText} from '../animations/anime-js.js';
 import {isWebpSupported} from 'react-image-webp/dist/utils/index.js';
-import {buildSwiper} from '../layouts/build-swiper.jsx';
-import {servicesSlide} from '../assets/services-slide.jsx';
+import {buildSwiper} from '../layouts/build-swiper.js';
+import {servicesSlide} from '../assets/services-slide.js';
 
 //* ----------------------------------------------------------------------------
 export const Services = () => {

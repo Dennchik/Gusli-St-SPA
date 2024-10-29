@@ -48,7 +48,9 @@ export const app = {
 			// 	import: ['./#src/js/app/AboutComponents.jsx'],
 			// 	dependOn: ['react-vendors', 'anime-vendors']
 			// },
-			index: {
+
+
+			/* index: {
 				import: ['./#src/js/layouts/index.jsx'],
 				dependOn: ['react-vendors', 'anime-vendors', 'swiper-bundle'],
 				filename: '[name].min.js'
@@ -62,7 +64,7 @@ export const app = {
 				import: ['gsap', 'animejs', 'gsap/ScrollSmoother',
 					'gsap/ScrollTrigger']
 			},
-			'swiper-bundle': { import: ['swiper/bundle'] }
+			'swiper-bundle': { import: ['swiper/bundle'] } */
 
 			// dependOn: 'shared',
 			// shared: 'lodash',
@@ -128,6 +130,8 @@ export const app = {
 			minimizer: [
 				new TerserPlugin({
 					terserOptions: {
+						keep_fnames: true, // сохраняем имена функций
+						keep_classnames: true, // сохраняем имена классов
 						format: {
 							comments: false,
 						},
@@ -135,25 +139,38 @@ export const app = {
 					extractComments: false,
 				}),
 			],
-			splitChunks: {
-				chunks: 'async',
-				cacheGroups: {
-					vendor: {
-						test: /[\\/]module[\\/]/,
-						name: 'vendors',
-						chunks: 'all',
-					},
-				},
-			},
+			runtimeChunk: 'single',
 		},
+
 		entry: {
 			// about: './#src/js/about.js',
-			// index: './#src/js/index.js',
-			main: './#src/js/main.js'
+			main: {
+				import: ['./#src/js/main.js'],
+				filename: '[name].min.js'
+			},
+			index: {
+			 import: ['./#src/js/index.js'],
+			 dependOn: ['react-vendors', 'anime-vendors' ,
+				 'swiper-bundle'
+			 ],
+			 filename: '[name].min.js'
+			 },
+			 //! depend On - vendors
+			 'react-vendors': {
+			 import: ['react', 'react-dom', 'react-router-dom',
+			 'prop-types']
+			 },
+			 'anime-vendors': {
+			 import: ['gsap', 'gsap/ScrollSmoother',
+			 'gsap/ScrollTrigger']
+			 },
+			 'swiper-bundle': { import: ['swiper/bundle'] }
+
 		},
 		output: {
-			filename: '[name].min.js',
+			filename: 'app/[name].min.js',
 		},
+		devtool: 'source-map',
 		module: {
 			rules: [
 				{
