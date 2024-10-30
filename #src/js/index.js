@@ -6,8 +6,8 @@ import App from '../js/app/App.js';
 
 const root = createRoot(document.getElementById('page'));
 
-root.render(<StrictMode>
+root.render(<React.StrictMode>
 	<BrowserRouter>
 		<App/>
 	</BrowserRouter>
-</StrictMode>);
+</React.StrictMode>);
