@@ -21,6 +21,7 @@
 		"RESET": "gulp clear",
 		"RESET-Fonts": "gulp clearFonts",
 		"WATCHER": "gulp server",
+		"REDIRECT": "gulp redirect",
 		"TASKS": "gulp --tasks"
 	},
 	"author": "Dennchik",

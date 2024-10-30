@@ -46,9 +46,11 @@ import { react } from './gulp/tasks/react.js';
 import { scss } from './gulp/tasks/scss.js';
 import { server } from './gulp/tasks/server.js';
 import { sprite } from './gulp/tasks/sprite.js';
+import { redirect } from './gulp/tasks/redirect.js';
+
 //* Watcher
 const change = gulp.series(clearFonts, fonts, fontsStyle);
-const changejson = gulp.series(json, pugJade);
+const changeJson = gulp.series(json, pugJade);
 
 function reload(done) {
 	browserSync.reload();
@@ -58,7 +60,7 @@ function reload(done) {
 const watcher = () => {
 	gulp.watch(path.js.watch, gulp.series(js, reload));
 	gulp.watch(path.pug.watch, pugJade).on('all', browserSync.reload);
-	gulp.watch(path.json.watch, changejson).on('all', browserSync.reload);
+	gulp.watch(path.json.watch, changeJson).on('all', browserSync.reload);
 	gulp.watch(path.json.readFile, pugJade).on('all', browserSync.reload);
 	gulp.watch(path.react.watch, gulp.series(react, reload));
 	gulp.watch(path.scss.watch, gulp.series(scss, reload));
@@ -69,10 +71,8 @@ const watcher = () => {
 
 };
 
-const end = gulp.series(
-	clear, clearFonts, json,
-	gulp.parallel(scss, js, react, pugJade, fonts, image, sprite), fontsStyle,
-);
+const end = gulp.series(clear, clearFonts, json, redirect,
+	gulp.parallel(scss, js, react, pugJade, fonts, image, sprite), fontsStyle,);
 const dev = gulp.series(end, gulp.parallel(watcher, server));
 //* Call back
 export {
@@ -87,7 +87,8 @@ export {
 	react,
 	scss,
 	server,
-	sprite
+	sprite,
+	redirect
 };
 //* Default Task
 export default app.isProd ? end : dev;
