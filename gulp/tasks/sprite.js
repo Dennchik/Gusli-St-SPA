@@ -2,7 +2,7 @@
 import cheerio from 'gulp-cheerio';
 import replace from 'gulp-replace';
 import svgSprite from 'gulp-svg-sprite';
-// import svgmin from 'gulp-svgmin';
+import svgmin from 'gulp-svgmin';
 //* Sprite - Task
 export function sprite() {
 	return $.gulp.src($.path.sprite.src)

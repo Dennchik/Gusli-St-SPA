@@ -46,6 +46,7 @@
 		"babel-loader": "^9.2.1",
 		"babel-preset-react-app": "^10.0.1",
 		"browser-sync": "^3.0.2",
+		"connect-history-api-fallback": "^2.0.0",
 		"css-loader": "^7.1.2",
 		"del": "^8.0.0",
 		"eslint": "^9.12.0",

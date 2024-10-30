@@ -76,6 +76,7 @@
 	// .about-company__title
 	&__title {
 		font-size: 2rem;
+		margin-bottom: 2rem;
 		text-shadow: 0 0 1px $neon-electric;
 	}
 
@@ -139,7 +140,7 @@
 }
 
 .team-mates {
-	margin: 2rem 0;
+
 	// .team-mates__list
 	&__list {
 		display: flex;

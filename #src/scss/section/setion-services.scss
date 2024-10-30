@@ -87,7 +87,7 @@
 
 	// .services__offer
 	&__offer {
-		padding: 2rem 0;
+		padding: 0 0 10rem 0;
 	}
 }
 
@@ -97,7 +97,7 @@
 		position: relative;
 		display: flex;
 		justify-content: space-between;
-		margin: 12rem 0;
+		padding: 10rem 0;
 		gap: 2.5rem;
 
 		@include screen-490 {
@@ -143,9 +143,7 @@
 			}
 
 			.services-slide__image {
-				// img {
 				scale: 1.1;
-				// }
 			}
 
 			.services-slide__bg-img {
