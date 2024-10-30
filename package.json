@@ -4,6 +4,7 @@
 	"description": "Gusli-Studio-SPA",
 	"main": "index.js",
 	"type": "module",
+	"homepage": "https://dennchik.github.io/Gusli-St-SPA",
 	"scripts": {
 		"START": "gulp",
 		"PRODUCTION": "gulp --production",
