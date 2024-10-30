@@ -60,8 +60,7 @@ export const MainSlide = ({baseUrl}) => {
 			<div className="main-slide__body _swiper">
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
-						<img src={ `/${img/main/slides/slide_1.jpg}`}
-								 alt="slide-1" />}
+						
 						{/* <picture> {isWebpSupported() ? */}
 						{/* 	<img src={getPath('img/main/slides/slide_1.webp')} */}
 						{/* 			 alt="slide-1"/> : */}
