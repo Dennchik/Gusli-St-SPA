@@ -30,8 +30,7 @@ export const MainSlide = ({baseUrl}) => {
 
 		// Начинаем отслеживать изменения в слайд-контейнерах
 		slideWrappers.forEach((slideWrapper) => {
-			const observer = new MutationObserver((
-				mutations) => {
+			const observer = new MutationObserver((mutations) => {
 				mutations.forEach((mutation) => {
 					if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
 						const isActive = slideWrapper.classList.contains(
@@ -57,19 +56,20 @@ export const MainSlide = ({baseUrl}) => {
 		return `${baseUrl}/${fileName}`;
 	};
 
-	return (
-		<div className="main-slide">
+	return (<div className="main-slide">
 			<div className="main-slide__body _swiper">
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
-						<picture> {
-							isWebpSupported()
-								? <img src={getPath('@@webRoot/img/main/slides/slide_1.webp')}
-											 alt="slide-1"/>
-								: <img src={getPath('@@webRoot/img/main/slides/slide_1.jpg')}
-											 alt="slide-1"/>
-						}
-						</picture>
+						<img src={'@@webRoot/img/main/slides/slide_1.jpg'}
+								 alt="slide-1"/>
+						{/* <picture> { */}
+						{/* 	isWebpSupported() */}
+						{/* 		? <img src={getPath('@@webRoot/img/main/slides/slide_1.webp')} */}
+						{/* 					 alt="slide-1"/> */}
+						{/* 		: <img src={getPath('@@webRoot/img/main/slides/slide_1.jpg')} */}
+						{/* 					 alt="slide-1"/> */}
+						{/* } */}
+						{/* </picture> */}
 					</div>
 					<div className="main-slide__content _container">
 						<h1 className="main-slide__title el-slidetitle">
@@ -88,11 +88,11 @@ export const MainSlide = ({baseUrl}) => {
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
 						<picture>
-							{isWebpSupported()
-								? <img src={getPath('@@webRoot/img/main/slides/slide_4.webp')}
-											 alt="slide-4"/>
-								: <img src={getPath('@@webRoot/img/main/slides/slide_4.jpg')}
-											 alt="slide-4"/>}
+							{isWebpSupported() ?
+								<img src={getPath('@@webRoot/img/main/slides/slide_4.webp')}
+										 alt="slide-4"/> :
+								<img src={getPath('@@webRoot/img/main/slides/slide_4.jpg')}
+										 alt="slide-4"/>}
 						</picture>
 					</div>
 					<div className="main-slide__content _container">
@@ -113,11 +113,11 @@ export const MainSlide = ({baseUrl}) => {
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
 						<picture>
-							{isWebpSupported()
-								? <img src={getPath('@@webRoot/img/main/slides/slide_2.webp')}
-											 alt="slide-2"/>
-								: <img src={getPath('@@webRoot/img/main/slides/slide_2.jpg')}
-											 alt="slide-2"/>}
+							{isWebpSupported() ?
+								<img src={getPath('@@webRoot/img/main/slides/slide_2.webp')}
+										 alt="slide-2"/> :
+								<img src={getPath('@@webRoot/img/main/slides/slide_2.jpg')}
+										 alt="slide-2"/>}
 						</picture>
 					</div>
 					<div className="main-slide__content _container">
@@ -134,11 +134,11 @@ export const MainSlide = ({baseUrl}) => {
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
 						<picture>
-							{isWebpSupported()
-								? <img src={getPath('@@webRoot/img/main/slides/slide_3.webp')}
-											 alt="slide-3"/>
-								: <img src={getPath('@@webRoot/img/main/slides/slide_3.jpg')}
-											 alt="slide-3"/>}
+							{isWebpSupported() ?
+								<img src={getPath('@@webRoot/img/main/slides/slide_3.webp')}
+										 alt="slide-3"/> :
+								<img src={getPath('@@webRoot/img/main/slides/slide_3.jpg')}
+										 alt="slide-3"/>}
 						</picture>
 					</div>
 					<div className="main-slide__content _container">
