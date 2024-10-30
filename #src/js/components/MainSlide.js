@@ -60,13 +60,12 @@ export const MainSlide = ({baseUrl}) => {
 			<div className="main-slide__body _swiper">
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
-						
-						{/* <picture> {isWebpSupported() ? */}
-						{/* 	<img src={getPath('img/main/slides/slide_1.webp')} */}
-						{/* 			 alt="slide-1"/> : */}
-						{/* 	<img src={getPath('img/main/slides/slide_1.jpg')} */}
-						{/* 			 alt="slide-1" rounded/>} */}
-						{/* </picture> */}
+						<picture> {isWebpSupported() ?
+							<img src={getPath('img/main/slides/slide_1.webp')}
+									 alt="slide-1"/> :
+							<img src={getPath('img/main/slides/slide_1.jpg')}
+									 alt="slide-1" rounded/>}
+						</picture>
 					</div>
 					<div className="main-slide__content _container">
 						<h1 className="main-slide__title el-slidetitle">
