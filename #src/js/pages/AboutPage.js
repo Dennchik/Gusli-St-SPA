@@ -1,13 +1,16 @@
 import React, {useEffect} from 'react';
 import {About} from '../components/About.js';
 import {Footer} from '../components/Footer.js';
+import parallaxEffect from '../animations/parallax.js';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
 //* ----------------------------------------------------------------------------
 export const AboutPage = () => {
 	useEffect(() => {
-		// window.scrollTo(0, 0);// Сброс прокрутки при рендеринг страницы
+		parallaxEffect();
+		window.scrollTo(0, 0);// Сброс прокрутки при рендеринг страницы
 		// console.log(window.scrollTo, 'scroll');
+
 	}, []); // Этот эффект выполнится один раз при монтировании страницы
 	return (
 		<>

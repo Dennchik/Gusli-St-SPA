@@ -2,7 +2,7 @@
 @use './core/all.scss' as *;
 // todo --------------------------- Modules ------------------------------------
 @use 'modules/preloader';
-// @use 'modules/breadcrumbs';
+@use 'modules/parallax';
 // todo --------------------------- Assets -------------------------------------
 @use 'assets/burger-button';
 @use 'assets/button';
@@ -26,16 +26,16 @@
 // todo --------------------------- Classes ------------------------------------
 // #region
 .wrapper {
-	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
+	margin: 0 auto;
 }
 
 [class*='_container'] {
 	// width: 100%;
-	max-width: $maxWidthContainer;
 	box-sizing: content-box;
+	max-width: $maxWidthContainer;
 	margin: 0 auto;
 	padding: 0 30px;
 
@@ -49,11 +49,11 @@
 }
 
 [class*='icon-'] {
-	cursor: pointer;
-	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: 100%;
+	cursor: pointer;
 }
 
 [class*='_stretch'] {

@@ -5,13 +5,7 @@ import {Flip} from 'gsap/Flip';
 //* ----------------------------------------------------------------------------
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 ScrollTrigger.normalizeScroll(true);
-export let smoother = ScrollSmoother.create({
-	wrapper: '#wrapper',
-	content: '#content',
-	smooth: 1,
-	effects: true,
-	normalizeScroll: true
-});
+ 
 //* ----------------------------------------------------------------------------
 //todo: Секция "Parallax Effects".
 export function applyParallaxEffects(smoother, element) {

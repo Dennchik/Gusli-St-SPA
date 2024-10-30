@@ -7,36 +7,36 @@
 		z-index: 9;
 		display: flex;
 		align-items: center;
-		justify-content: center;
 		flex-direction: column;
-		padding: 12rem 0 6rem;
+		justify-content: center;
 	}
 
 	// .services__title
 	&__title {
-		position: relative;
-		color: $neon-blue;
-		text-align: center;
-		line-height: 100%;
-		letter-spacing: 0;
 		font: {
 			family: 'aa_neon', serif;
 			size: 7.5rem;
 			weight: normal;
 		}
-		display: inline;
-		padding: 0 5rem 2rem;
+		line-height: 100%;
+		position: relative;
 		z-index: 9;
+		display: inline;
+		margin-top: 8rem;
+		padding: 0 5rem;
+		text-align: center;
+		letter-spacing: 0;
+		color: $neon-blue;
 		filter: $filter;
 
 		&::before {
-			content: '';
 			position: absolute;
-			width: 100%;
-			height: 70%;
+			z-index: -1;
 			top: 0;
 			left: 0;
-			z-index: -1;
+			width: 100%;
+			height: 70%;
+			content: '';
 		}
 
 		&:nth-child(1) {
@@ -44,29 +44,20 @@
 			transform-style: preserve-3d;
 			perspective: 100px;
 
-			@include screen-690 {
-				font-size: 5.1rem;
-			}
-
-			@include screen-425 {
-				font-size: 3.4rem;
-				margin-top: 4rem;
-			}
-
 			&::before {
 				transform: translate(0, 58%);
 			}
 
 			&::after {
-				content: 'наши услуги';
+				font: {
+					weight: 900;
+				}
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 70%;
-				font: {
-					weight: 900;
-				}
+				content: 'наши услуги';
 				transform: rotateX(15deg) translateZ(-11px);
 				@extend .shadow-after;
 			}
@@ -75,8 +66,17 @@
 		@include minmax-490-1024 {
 			font-size: calc(27px + (75 - 27) * ((100vw - 490px) / (1920 - 490)));
 		}
+
+		@include screen-690 {
+			font-size: 5.1rem;
+		}
+
 		@include screen-490 {
 			font-size: 27px;
+		}
+
+		@include screen-425 {
+			font-size: 3.4rem;
 		}
 	}
 
@@ -91,52 +91,14 @@
 	}
 }
 
-.material-parallax {
-	position: absolute;
-	overflow: hidden;
-	width: 100%;
-	height: 100vh;
-	z-index: -1;
-}
-
-.parallax {
-	position: absolute;
-	overflow: hidden;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
-	background: rgba(255, 255, 255, 0.02);
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.18);
-
-	// .parallax__image
-	&__image {
-		opacity: 0.3;
-		width: 100%;
-		height: 100%;
-
-		img {
-			pointer-events: none;
-			width: 100%;
-			min-width: 100%;
-			height: 100%;
-			max-width: none;
-			object-fit: cover;
-			object-position: center;
-		}
-	}
-}
-
 .services-slide {
 	// .services-slide__body
 	&__body {
 		position: relative;
-		margin: 12rem 0;
-		gap: 2.5rem;
 		display: flex;
 		justify-content: space-between;
+		margin: 12rem 0;
+		gap: 2.5rem;
 
 		@include screen-490 {
 			margin: 6rem 0;
@@ -150,33 +112,33 @@
 		max-width: 350px;
 
 		&::before {
-			content: '';
-			display: block;
 			position: absolute;
-			box-shadow: $boxShadow;
+			z-index: -1;
 			top: -10px;
-			left: 30px;
 			right: 30px;
 			bottom: -10px;
-			z-index: -1;
-			border-radius: 2px;
-			opacity: 0.3;
+			left: 30px;
+			display: block;
+			content: '';
 			transition: all 0.3s ease-in-out;
+			opacity: 0.3;
+			border-radius: 2px;
+			box-shadow: $boxShadow;
 
 			@include screen-1024 {
 				top: 1px;
-				left: 1px;
 				right: 1px;
 				bottom: 1px;
+				left: 1px;
 			}
 		}
 
 		&:hover {
 			&::before {
 				top: -3px;
-				left: -3px;
 				right: -3px;
 				bottom: -3px;
+				left: -3px;
 				opacity: 0.8;
 			}
 
@@ -205,20 +167,20 @@
 	// .services-slide__image
 	&__image {
 		overflow: hidden;
-		transition: all 0.5s ease-in-out;
 		height: 100%;
 		cursor: pointer;
+		transition: all 0.5s ease-in-out;
 		border-radius: 2px;
 		filter: $filter;
 
 		img {
+			z-index: 1;
 			top: 0;
 			left: 0;
-			z-index: 1;
 			width: 100%;
+			transition: scale 0.4s ease-in-out;
 			object-fit: cover;
 			object-position: center;
-			transition: scale 0.4s ease-in-out;
 		}
 
 		svg {
@@ -229,12 +191,12 @@
 	// .services-slide__bg-img
 	&__bg-img {
 		position: absolute;
+		z-index: 2;
 		top: 0;
 		left: 0;
-		z-index: 2;
-		opacity: 0;
 		transition: opacity 1.5s,
 		box-shadow 0.3s ease-in-out 0.2s;
+		opacity: 0;
 	}
 
 	// .services-slide__svg
@@ -260,20 +222,20 @@
 
 	// .services-slide__text
 	&__text {
-		position: absolute;
 		font-family: 'aa_neon', Helvetica, sans-serif;
-		left: 0;
-		right: 0;
 		font-size: 2.4rem;
-		text-align: center;
-		bottom: 1rem;
 		font-weight: normal;
-		text-shadow: 0 0 7px #000;
+		position: absolute;
+		right: 0;
+		bottom: 1rem;
+		left: 0;
 		display: flex;
-		background-color: #0b0813bb;
 		justify-content: center;
-		color: $neon-blue;
 		transition: transform 0.4s ease-in-out;
+		text-align: center;
+		color: $neon-blue;
+		background-color: #0b0813bb;
+		text-shadow: 0 0 7px #000;
 
 		svg {
 			height: 32px;
@@ -288,29 +250,29 @@
 }
 
 .offer-container {
-	height: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 
 	// .offer-container__title
 	&__title {
-		white-space: nowrap;
-		position: relative;
-		display: inline;
-		padding: 0 5rem 2rem;
-		margin-bottom: 6rem;
 		font: {
 			family: 'aa_neon', serif;
 			size: 5rem;
 			weight: normal;
 		}
-		text-align: center;
 		line-height: 100%;
+		position: relative;
+		z-index: 9;
+		display: inline;
+		margin-bottom: 6rem;
+		padding: 0 5rem 2rem;
+		text-align: center;
+		white-space: nowrap;
 		letter-spacing: 0;
 		color: $neon-blue;
-		z-index: 9;
 		perspective-origin: 45% 320%;
 		transform-style: preserve-3d;
 		perspective: 100px;
@@ -322,31 +284,31 @@
 
 		@include screen-490 {
 			font-size: 17px;
-			padding: 0 0 2rem;
-			margin: 0 0 6rem;
 			line-height: 120%;
+			margin: 0 0 6rem;
+			padding: 0 0 2rem;
 		}
 
 		&::before {
-			content: '';
-			height: 100%;
 			position: absolute;
+			z-index: -1;
 			top: 0;
 			left: 0;
-			z-index: -1;
+			height: 100%;
+			content: '';
 			transform: translate(0, 10%);
 		}
 
 		&::after {
-			content: 'специальное предложение';
+			font: {
+				weight: 900;
+			}
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 70%;
-			font: {
-				weight: 900;
-			}
+			content: 'специальное предложение';
 			transform: rotateX(15deg) translateZ(-5px);
 			@extend .shadow-after;
 		}
@@ -355,10 +317,10 @@
 	// .offer-container__body
 	&__body {
 		display: grid;
+		height: 100%;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: auto auto;
 		gap: 2rem;
-		height: 100%;
 
 		@include screen-690 {
 			grid-template-columns: 1fr;
@@ -367,15 +329,15 @@
 
 	// .offer-container__column
 	&__column {
-		cursor: pointer;
 		position: relative;
-		height: 100%;
+		z-index: 9;
 		display: flex;
 		flex-direction: column;
-		border-bottom: 1px solid $border-color;
+		height: 100%;
 		padding: 2rem;
+		cursor: pointer;
+		border-bottom: 1px solid $border-color;
 		border-radius: 4px;
-		z-index: 9;
 		filter: $filter;
 
 		@extend .gradient-spec;
@@ -394,19 +356,19 @@
 	// .offer-container__wrapper
 	&__wrapper {
 		display: flex;
-		flex-direction: column;
 		flex: 1 1 100%;
+		flex-direction: column;
 	}
 
 	// .offer-container__thumbnail
 	&__thumbnail {
-		opacity: 0;
 		position: absolute;
-		pointer-events: none;
-		inset: 0;
 		transition: all 0.7s ease-in-out;
+		pointer-events: none;
+		opacity: 0;
 		background: linear-gradient(-45deg, #04d9ff81, #170e3181 83%);
 		background-size: 200% 200%;
+		inset: 0;
 
 		&::before {
 			content: '';
@@ -416,18 +378,18 @@
 
 	// .offer-container__link
 	&__link {
-		cursor: pointer;
+		display: inline;
 		flex: 0 1 auto;
 		margin-bottom: 2rem;
-		display: inline;
+		cursor: pointer;
 	}
 
 	// .offer-container__title-box
 	&__title-box {
-		color: ghostwhite;
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
+		color: ghostwhite;
 
 		.icon-rub {
 			font-size: 24px;
@@ -442,9 +404,9 @@
 			}
 
 			&:nth-child(2) {
-				white-space: nowrap;
 				display: inline-flex;
 				align-items: center;
+				white-space: nowrap;
 
 				i {
 					margin-left: 1rem;

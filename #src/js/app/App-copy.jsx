@@ -14,7 +14,7 @@ import {
 } from '../animations/smoothEffects.js';
 import {ScrollToTop} from '../assets/ScrollToTop.js';
 import {Layout} from '../layouts/Layout.jsx';
-import {AboutPage} from '../pages/AboutPage.jsx';
+import {AboutPage} from '../pages/AboutPage.js';
 import {HomePage} from '../pages/HomePage.js';
 
 export default function App() {

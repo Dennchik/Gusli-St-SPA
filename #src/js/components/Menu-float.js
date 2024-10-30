@@ -1,38 +1,41 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-scroll';
-// -----------------------------------------------------------------------------
-export default function MenuFloat({baseUrl}) {
+import PropTypes from 'prop-types';
+// import { initSectionTriggerMove } from '../animations/animation-index.jsx';
+
+export const MenuFloat = ({baseUrl}) => {
 	const [offset, setOffset] = useState(-100);
 	useEffect(() => {
+
 		function handleResize() {
 			const screenWidth = window.innerWidth;
-			//todo: Настроить логику для установки различных значений offset в
-			// зависимости от ширины экрана
-			if (screenWidth < 768) {
-				setOffset(-150);
+			/* Настроить логику для установки различных значений offset в
+			 зависимости от ширины экрана */
+			if (screenWidth < 920) {
+				setOffset(-80);
 			} else {
 				setOffset(-100);
 			}
 		}
 
-		//todo: Вызываем функцию handleResize сразу после монтирования компонента,
-		// чтобы установить начальное значение
+		/* Вызов функции handleResize сразу после монтирования компонента,
+		 чтобы установить начальное значение */
 		handleResize();
 
-		//todo: Убираем слушатель события изменения размера окна при
-		// размонтировании компонента
+		/* Убираем слушатель события изменения размера окна при
+		 размонтировании компонента */
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
-
 	useEffect(() => {
-		document.querySelector('.burger-button').addEventListener('click',
-			function () {
+
+		document.querySelector('.burger-button').addEventListener(
+			'click', function () {
 				this.classList.toggle('_active');
-				const menuFloattop = document.querySelector('.menu-float__top');
-				console.log(menuFloattop);
-				menuFloattop.classList.toggle('_is-open');
+				const menuFloatTop = document.querySelector('.menu-float__top');
+				menuFloatTop.classList.toggle('_is-open');
 			});
 	}, []);
+
 	const getPath = (filename) => {
 		return `${baseUrl}/${filename}`;
 	};
@@ -52,19 +55,24 @@ export default function MenuFloat({baseUrl}) {
 													<h4>Inspiration</h4>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">Видео</a>
+													<a className="main-menu__menu-link"
+														 href="">Видео</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">Звук</a>
+													<a className="main-menu__menu-link"
+														 href="">Звук</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">Текст</a>
+													<a className="main-menu__menu-link"
+														 href="">Текст</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">Ивенты</a>
+													<a className="main-menu__menu-link"
+														 href="">Ивенты</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">Услуги</a>
+													<a className="main-menu__menu-link"
+														 href="">Услуги</a>
 												</li>
 											</ul>
 										</div>
@@ -78,12 +86,12 @@ export default function MenuFloat({baseUrl}) {
 														 href={getPath('pages/about.html')}>Биография</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">С кем
-														работали</a>
+													<a className="main-menu__menu-link"
+														 href="">С кем работали</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link" href="">Отзывы
-														клиентов</a>
+													<a className="main-menu__menu-link"
+														 href="">Отзывы клиентов</a>
 												</li>
 												<li className="main-menu__menu-link">
 													<a className="main-menu__menu-link"
@@ -100,7 +108,8 @@ export default function MenuFloat({baseUrl}) {
 						<div className="menu-float__bottom">
 							<div className="menu-float__layout menu-float__layout--primary">
 								<div className="menu-float__content">
-									<a className="menu-float__mail" href="tel:+79106044424">
+									<a className="menu-float__mail"
+										 href="tel:+79106044424">
 										<div className="menu-float__logo">
 											<i className="icon-phone-call"></i></div>
 										<div className="menu-float__breadcrumb">
@@ -113,25 +122,34 @@ export default function MenuFloat({baseUrl}) {
 								<div className="menu-float__content">
 									<div className="menu-float__nav">
 										<div className="menu-float__menu-link menu-float__menu-link--home">
-											<Link to='main-slide'
-														duration={700}
-														smooth={true}
-														offset={0}>Home</Link>
+											<a className="menu-float__link"
+												 href={getPath('index.html')}>
+												<i className="icon-home"></i>
+											</a>
 										</div>
 										<div className="menu-float__menu-link menu-float__menu-link--services">
-											<Link to='services'
-														duration={700}
-														smooth={true}
-														offset={-80}>
-												Services
+											<Link className="menu-float__link"
+														to='services'
+														activeClass="_active"
+														spy={true}
+														smooth='easeInQuad'
+														ignoreCancelEvents={false}
+														duration={500}
+														offset={offset}
+											>
+												<span>Услуги</span>
 											</Link>
 										</div>
 										<div className="menu-float__menu-link menu-float__menu-link--footer">
-											<Link to='footer'
-														duration={700}
-														smooth={true}
-														offset={-80}>
-												Contacts
+											<Link className='menu-float__link'
+														to='footer'
+														activeClass="_active"
+														spy={true}
+														duration={500}
+														smooth='easeInQuad'
+														offset={offset}
+											>
+												<span>Контакты</span>
 											</Link>
 										</div>
 									</div>
@@ -156,4 +174,7 @@ export default function MenuFloat({baseUrl}) {
 			</div>
 		</nav>
 	);
-}
+};
+MenuFloat.propTypes = {
+	baseUrl: PropTypes.string.isRequired,
+};

@@ -35,22 +35,9 @@ export const app = {
 			},
 		},
 		entry: {
-			// 'home-components': {
-			// 	import: ['./#src/js/app/MainComponents.jsx'],
-			// 	dependOn: [
-			// 		'react-vendors',
-			// 		'anime-vendors',
-			// 		'swiper-bundle'
-			// 	]
-			// },
-
-			// 'about-components': {
-			// 	import: ['./#src/js/app/AboutComponents.jsx'],
-			// 	dependOn: ['react-vendors', 'anime-vendors']
-			// },
 
 
-			/* index: {
+		/* 	index: {
 				import: ['./#src/js/layouts/index.jsx'],
 				dependOn: ['react-vendors', 'anime-vendors', 'swiper-bundle'],
 				filename: '[name].min.js'

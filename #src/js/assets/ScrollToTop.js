@@ -1,13 +1,25 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import {useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
+import {animateScroll} from 'react-scroll';
 
-export function ScrollToTop() {
+export default function ScrollToTop() {
 	const {pathname} = useLocation();
-
+	//
 	useEffect(() => {
-		// Принудительно сбрасываем прокрутку для любого маршрута
-		window.scrollTo({top: 0, behavior: 'smooth'});
-	}, [pathname]);  // Отслеживаем любые изменения в URL
+		// setTimeout(() => {
+		const options = {
+			// your options here, for example:
+			duration: 30,
+			smooth: true,
+		};
+		animateScroll.scrollToTop(options);
+		// 	// Принудительно сбрасываем прокрутку для любого маршрута
+		// 	window.scrollTo({top: 0});
+		// }, 500);
 
-	return null;
+	}, [pathname]);  // Отслеживаем любые изменения в URL
+	//
+	// return null;
+
+
 }

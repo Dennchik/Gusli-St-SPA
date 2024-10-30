@@ -1,26 +1,28 @@
-import { gsap } from 'gsap';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {gsap} from 'gsap';
+import {useGSAP} from '@gsap/react';
+import {ScrollSmoother} from 'gsap/ScrollSmoother.js';
+import {ScrollTrigger} from 'gsap/ScrollTrigger,js';
 
 //* ------------- Регистрация - ScrollTrigger, ScrollSmoother ------------------
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 //* --------------------- Конфигурация - ScrollTrigger -------------------------
 ScrollTrigger.normalizeScroll(false);
-ScrollTrigger.config({ ignoreMobileResize: true });
+ScrollTrigger.config({ignoreMobileResize: true});
 
 //* ------------------- Проверка на мобильное устройство -----------------------
 export function isMobile() {
 	return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-export const initScroll = (options) => {
-	ScrollSmoother.create({
-		content: '#content',
-		smooth: options.smooth,
-		speed: options.speed,
-	});
-};
+// export const initScroll = (options) => {
+// 	ScrollSmoother.create({
+// 		content: '#content',
+// 		smooth: options.smooth,
+// 		speed: options.speed,
+// 	});
+// };
+
 //* ----------------------- Создание ScrollSmoother ----------------------------
 export function smoother() {
 	return ScrollSmoother.create({
