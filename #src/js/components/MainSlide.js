@@ -60,8 +60,23 @@ export const MainSlide = ({baseUrl}) => {
 			<div className="main-slide__body _swiper">
 				<div className="main-slide__slide-wrapper">
 					<div className="main-slide__slide-image _img">
-						<img src={'img/main/slides/slide_1.jpg'}
-								 alt="slide-1"/>
+						<picture className="image_cont">
+							<source
+								srcSet={"https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NDMzNTU3OA&ixlib=rb-1.2.1&q=85&w=1500"}
+								media="(min-width: 1500px)"
+							/>
+							<source
+								srcSet={"https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NDMzNTU3OA&ixlib=rb-1.2.1&q=85&w=1000"}
+								media="(min-width: 700px)"
+							/>
+							<img
+								data-speed="auto"
+								className=""
+								src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NDMzNTU3OA&ixlib=rb-1.2.1&q=85&w=600"
+								alt=""
+							/>
+						</picture>
+						alt="slide-1"/>
 						{/* <picture> { */}
 						{/* 	isWebpSupported() */}
 						{/* 		? <img src={getPath('@@webRoot/img/main/slides/slide_1.webp')} */}
