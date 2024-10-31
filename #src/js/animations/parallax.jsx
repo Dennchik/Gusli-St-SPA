@@ -1,5 +1,5 @@
-import {gsap} from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger.js';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 //* ---- Регистрируем плагин ScrollTrigger, чтобы использовать его функции; ----
 gsap.registerPlugin(ScrollTrigger);

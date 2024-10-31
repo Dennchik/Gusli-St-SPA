@@ -31,27 +31,27 @@ export const app = {
 		},
 		devServer: {
 			historyApiFallback: {
-				rewrites: [{ from: /\//, to: '/404.html' }],
+				rewrites: [{from: /\//, to: '/404.html'}],
 			},
 		},
 		entry: {
 
 
-		/* 	index: {
-				import: ['./#src/js/layouts/index.jsx'],
-				dependOn: ['react-vendors', 'anime-vendors', 'swiper-bundle'],
-				filename: '[name].min.js'
-			},
-			//! depend On - vendors
-			'react-vendors': {
-				import: ['react', 'react-dom', 'react-router-dom',
-					'prop-types']
-			},
-			'anime-vendors': {
-				import: ['gsap', 'animejs', 'gsap/ScrollSmoother',
-					'gsap/ScrollTrigger']
-			},
-			'swiper-bundle': { import: ['swiper/bundle'] } */
+			/* 	index: {
+			 import: ['./#src/js/layouts/index.jsx'],
+			 dependOn: ['react-vendors', 'anime-vendors', 'swiper-bundle'],
+			 filename: '[name].min.js'
+			 },
+			 //! depend On - vendors
+			 'react-vendors': {
+			 import: ['react', 'react-dom', 'react-router-dom',
+			 'prop-types']
+			 },
+			 'anime-vendors': {
+			 import: ['gsap', 'animejs', 'gsap/ScrollSmoother',
+			 'gsap/ScrollTrigger']
+			 },
+			 'swiper-bundle': { import: ['swiper/bundle'] } */
 
 			// dependOn: 'shared',
 			// shared: 'lodash',
@@ -85,7 +85,7 @@ export const app = {
 					use: [
 						'style-loader',
 						'css-loader',
-						'sass-loader'   // компилирует Sass в CSS
+						'sass-loader' // компилирует Sass в CSS
 					]
 				},
 				{
@@ -95,7 +95,8 @@ export const app = {
 							loader: 'file-loader',
 							options: {
 								name: '[name].[ext]',
-								outputPath: 'images', // папка, куда будут сохранены изображения
+								outputPath: 'images',
+								// папка, куда будут сохранены изображения
 							},
 						},
 
@@ -104,8 +105,8 @@ export const app = {
 			],
 		},
 		resolve: {
-			extensions: ['.js', '.jsx'], // разрешаем импорт файлов с расширениями
-			// .js и .jsx
+			extensions: ['.js', '.jsx'],
+			// разрешаем импорт файлов с расширениями .js и .jsx
 		},
 	},
 
@@ -136,22 +137,20 @@ export const app = {
 				filename: '[name].min.js'
 			},
 			index: {
-			 import: ['./#src/js/index.js'],
-			 dependOn: ['react-vendors', 'anime-vendors' ,
-				 'swiper-bundle'
-			 ],
-			 filename: '[name].min.js'
-			 },
-			 //! depend On - vendors
-			 'react-vendors': {
-			 import: ['react', 'react-dom', 'react-router-dom',
-			 'prop-types']
-			 },
-			 'anime-vendors': {
-			 import: ['gsap', 'gsap/ScrollSmoother',
-			 'gsap/ScrollTrigger']
-			 },
-			 'swiper-bundle': { import: ['swiper/bundle'] }
+				import: ['./#src/js/index.js'],
+				dependOn: ['react-vendors', 'anime-vendors', 'swiper-bundle'],
+				filename: '[name].min.js'
+			},
+			//! depend On - vendors
+			'react-vendors': {
+				import: ['react', 'react-dom', 'react-router-dom', 'prop-types']
+			},
+
+			'anime-vendors': {
+				import: ['gsap', 'gsap/ScrollSmoother', 'gsap/ScrollTrigger']
+			},
+
+			'swiper-bundle': {import: ['swiper/bundle']}
 
 		},
 		output: {
@@ -183,7 +182,10 @@ export const app = {
 				},
 			],
 		},
-
+		resolve: {
+			extensions: ['.js', '.jsx'],
+			// разрешаем импорт файлов с расширениями .js и .jsx
+		},
 	},
 
 	scss: {
@@ -232,7 +234,7 @@ export const app = {
 			$('[stroke]').removeAttr('stroke');
 			$('[style]').removeAttr('style');
 		},
-		parserOptions: { xmlMode: true }
+		parserOptions: {xmlMode: true}
 	},
 	svgSprite: {
 		shape: {
@@ -265,21 +267,22 @@ export const app = {
 			},
 		},
 	},
-	imageMin: ([
-		svgo({
-			plugins: [
-				{ optimizationLevel: 5 },
-				{ progessive: true },
-				{ interlaced: true },
-				{ removeViewBox: false },
-				{ removeUselessStrokeAndFill: false },
-				{ cleanupIDs: false }
-			],
-		}),
-		gifsicle({ interlaced: true }),
-		optipng({ optimizationLevel: 3 }),
-		mozjpeg({ quality: 75, progressive: true }),
-	]),
+	imageMin: (
+		[
+			svgo({
+				plugins: [
+					{optimizationLevel: 5},
+					{progessive: true},
+					{interlaced: true},
+					{removeViewBox: false},
+					{removeUselessStrokeAndFill: false},
+					{cleanupIDs: false}
+				],
+			}),
+			gifsicle({interlaced: true}),
+			optipng({optimizationLevel: 3}),
+			mozjpeg({quality: 75, progressive: true}),
+		]),
 	include: {
 		prefix: '@@',
 		basepath: '@#src'

@@ -17,6 +17,18 @@ import sourcemaps from 'gulp-sourcemaps';
 //* Configuration options
 import { app } from './gulp/config/app.js';
 import { path } from './gulp/config/path.js';
+//* Run - Tasks
+import { clear, clearFonts } from './gulp/tasks/clear.js';
+import { fonts } from './gulp/tasks/fonts.js';
+import { fontsStyle } from './gulp/tasks/fontStyle.js';
+import { image } from './gulp/tasks/image.js';
+import { js } from './gulp/tasks/js.js';
+import { json } from './gulp/tasks/json.js';
+import { pugJade } from './gulp/tasks/pug.js';
+import { redirect } from './gulp/tasks/redirect.js';
+import { scss } from './gulp/tasks/scss.js';
+import { server } from './gulp/tasks/server.js';
+import { sprite } from './gulp/tasks/sprite.js';
 //* Global variables;
 global.$ = {
 	path: path,
@@ -34,19 +46,6 @@ global.$ = {
 	gulpIf: gulpIf,
 
 };
-//* Run - Tasks
-import { clear, clearFonts } from './gulp/tasks/clear.js';
-import { fonts } from './gulp/tasks/fonts.js';
-import { fontsStyle } from './gulp/tasks/fontStyle.js';
-import { image } from './gulp/tasks/image.js';
-import { js } from './gulp/tasks/js.js';
-import { json } from './gulp/tasks/json.js';
-import { pugJade } from './gulp/tasks/pug.js';
-import { react } from './gulp/tasks/react.js';
-import { scss } from './gulp/tasks/scss.js';
-import { server } from './gulp/tasks/server.js';
-import { sprite } from './gulp/tasks/sprite.js';
-import { redirect } from './gulp/tasks/redirect.js';
 
 //* Watcher
 const change = gulp.series(clearFonts, fonts, fontsStyle);
@@ -58,11 +57,11 @@ function reload(done) {
 }
 
 const watcher = () => {
-	gulp.watch(path.js.watch, gulp.series(js, reload));
+	// gulp.watch(path.react.watch, gulp.series(react, reload));
+	gulp.watch(path.js.watch, gulp.series(js, browserSync.reload));
 	gulp.watch(path.pug.watch, pugJade).on('all', browserSync.reload);
 	gulp.watch(path.json.watch, changeJson).on('all', browserSync.reload);
 	gulp.watch(path.json.readFile, pugJade).on('all', browserSync.reload);
-	gulp.watch(path.react.watch, gulp.series(react, reload));
 	gulp.watch(path.scss.watch, gulp.series(scss, reload));
 	gulp.watch(path.image.watch, image).on('all', browserSync.reload);
 	gulp.watch(path.sprite.watch, sprite).on('all', browserSync.reload);
@@ -72,7 +71,8 @@ const watcher = () => {
 };
 
 const end = gulp.series(clear, clearFonts, json, redirect,
-	gulp.parallel(scss, js, react, pugJade, fonts, image, sprite), fontsStyle,);
+	gulp.parallel(pugJade, scss, js, fonts, image, sprite), fontsStyle,
+);
 const dev = gulp.series(end, gulp.parallel(watcher, server));
 //* Call back
 export {
@@ -84,7 +84,6 @@ export {
 	js,
 	json,
 	pugJade,
-	react,
 	scss,
 	server,
 	sprite,
