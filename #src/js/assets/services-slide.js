@@ -1,17 +1,17 @@
-import {buildSwiper} from '../layouts/build-swiper.js';
+import { buildSwiper } from '../layouts/build-swiper.js';
 
 buildSwiper('._swiper');
 //* import Swiper bundle with all modules installed
 import Swiper from 'swiper/bundle';
 
 export function servicesSlide(
-	mainslide = '.services-slide__body',
+	servicesSlide = '.services-slide__body',
 	// scrollbar = '',
 	// nextEl = '',
 	// prevEl = '',
 ) {
-	if (mainslide) {
-		new Swiper(mainslide, {
+	if (servicesSlide) {
+		new Swiper(servicesSlide, {
 			speed: 800,
 			spaceBetween: 30,
 			// loop: true,

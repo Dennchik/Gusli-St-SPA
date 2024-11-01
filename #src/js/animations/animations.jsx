@@ -31,7 +31,8 @@ export function tlFooterHorizontal() {
 			endTrigger: '.footer',
 			end: 'bottom bottom',
 			scrub: 2,
-			toggleActions: 'play none none reverse', // markers: true,
+			toggleActions: 'play none none reverse',
+			// markers: true,
 		},
 	});
 

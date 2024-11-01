@@ -6,7 +6,7 @@ import { Partners } from '../components/Partners.jsx';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
 //* ----------------------------------------------------------------------------
-export const AboutPage = () => {
+export const ServicesPage = () => {
 	useEffect(() => {
 		parallaxEffect();
 		window.scrollTo(0, 0); // Сброс прокрутки при рендеринг страницы

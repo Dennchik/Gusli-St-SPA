@@ -33,12 +33,13 @@ export default function parallaxEffect() {
 				y: movementFactor * 0.5 * triggerElement.offsetHeight,
 				ease: 'power1',
 				scrollTrigger: {
-					trigger: triggerElement, // Используем проверенный элемент как
-																	 // триггер
+					// Используем проверенный элемент как триггер
+					trigger: triggerElement,
 					start: i === 0 ? '-1px top' : 'top bottom', // Начало анимации
 					end: 'bottom top', // Конец анимации
 					scrub: true, // Связывает анимацию с прокруткой
-					invalidateOnRefresh: true // Обновление при изменении размеров
+					invalidateOnRefresh: true, // Обновление при изменении размеров
+					// markers: true,
 				}
 			});
 		});

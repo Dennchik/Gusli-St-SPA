@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-scroll';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
 import PropTypes from 'prop-types';
 // import { initSectionTriggerMove } from '../animations/animation-index.jsx';
 
@@ -83,7 +83,9 @@ export const MenuFloat = ({baseUrl}) => {
 												</div>
 												<li className="main-menu__menu-link">
 													<a className="main-menu__menu-link"
-														 href={getPath('pages/about.html')}>Биография</a>
+														 href={getPath('pages/about.html')}>
+														Компания
+													</a>
 												</li>
 												<li className="main-menu__menu-link">
 													<a className="main-menu__menu-link"

@@ -55,26 +55,8 @@ export const Services = () => {
 	}, []);
 
 	return (
-		<section className="services key-object">
-			<div className="material-parallax parallax">
-				<div className="parallax__image">
-					<picture>
-						{isWebpSupported() ? (
-							<img
-								className="bg"
-								src={'./img/main/body/prl_img.webp'}
-								alt="image"
-							/>
-						) : (
-							<img
-								className="bgs"
-								src={'./img/main/body/prl_img.png'}
-								alt="image"
-							/>
-						)}
-					</picture>
-				</div>
-			</div>
+		<div className="services key-object">
+			
 			<div className="services__body _container">
 				<div className="services__title">Наши услуги</div>
 				<div className="services__content">
@@ -126,19 +108,14 @@ export const Services = () => {
 												)}
 											</picture>
 											<picture>
-												{isWebpSupported() ? (
-													<img
-														className="services-slide__bg-img"
-														src={'@@webRoot/img/main/body/bg_img.webp'}
-														alt="bg-image"
-													/>
-												) : (
-													<img
-														className="services-slide__bg-img"
-														src={'.@@webRoot/img/main/body/bg_img.png'}
-														alt="bg-image"
-													/>
-												)}
+												{isWebpSupported()
+													? (<img className="services-slide__bg-img"
+																	src={'@@webRoot/img/main/body/bg_img.webp'}
+																	alt="bg-image" />)
+													: (<img className="services-slide__bg-img"
+																	src={'.@@webRoot/img/main/body/bg_img.png'}
+																	alt="bg-image" />
+													)}
 											</picture>
 										</a>
 										<div className="services-slide__text">
@@ -696,6 +673,6 @@ export const Services = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };

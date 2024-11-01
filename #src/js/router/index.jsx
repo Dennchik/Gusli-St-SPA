@@ -1,17 +1,18 @@
-import React, { useEffect, useRef } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
 import { useGSAP } from '@gsap/react';
+import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
+import React, { useEffect, useRef } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import {
-	refreshScrollTrigger,
 	animateTitles,
+	refreshScrollTrigger,
 	tlServices1,
 	tlServices2,
 } from '../animations/animations.jsx';
-import { AboutPage } from '../pages/AboutPage.jsx';
-import { MenuFloat } from '../components/Menu-float.jsx';
-import { HomePage } from '../pages/HomePage.jsx';
 import ScrollToTop from '../assets/ScrollToTop.js';
+import { MenuFloat } from '../components/Menu-float.jsx';
+import { AboutPage } from '../pages/AboutPage.jsx';
+import { HomePage } from '../pages/HomePage.jsx';
+import { ServicesPage } from '../pages/ServicesPage.jsx';
 
 const baseUrl = '.';
 
@@ -90,19 +91,20 @@ export default function Router() {
 
 	return (
 		<>
-			<ScrollToTop/> {/* Компонент для сброса прокрутки */}
+			<ScrollToTop /> {/* Компонент для сброса прокрутки */}
 			<main className="page__main-content">
 				<div className="main-content" id="wrapper">
 					<div className="main-content__content" id="content">
 						<Routes>
-							<Route path="/" element={<HomePage/>}/>
-							<Route path="/about" element={<AboutPage/>}/>
+							<Route path="/" element={<HomePage />} />
+							<Route path="/about" element={<AboutPage />} />
+							<Route path="/services" element={<ServicesPage />} />
 						</Routes>
 					</div>
 				</div>
 			</main>
 			<page__aside>
-				<MenuFloat baseUrl={baseUrl}/>
+				<MenuFloat baseUrl={baseUrl} />
 			</page__aside>
 		</>
 	);

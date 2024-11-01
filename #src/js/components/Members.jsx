@@ -26,7 +26,7 @@ export const AboutCompany = ({baseUrl}) => {
 				</div>
 				<div className='about__footer'>
 					<a className='about__button'
-					   href={'pages/about.html'}>читать всё</a>
+						 href={'pages/about.html'}>читать всё</a>
 				</div>
 			</div>
 			<div className="about__column el-2">
@@ -52,8 +52,8 @@ export const AboutCompany = ({baseUrl}) => {
 				</div>
 				<div className='about__footer'>
 					<a className='about__button'
-					   href="#"
-					   type='button'>читать всё</a>
+						 href="#"
+						 type='button'>читать всё</a>
 				</div>
 			</div>
 			<div className="about__column el-3">
@@ -64,7 +64,7 @@ export const AboutCompany = ({baseUrl}) => {
 							<li>
 								<div className="team-mates__image">
 									<img src={getPath('./img/footer/team-1.png')}
-									     alt="image"/>
+											 alt="image"/>
 								</div>
 							</li>
 							<li>
@@ -81,7 +81,7 @@ export const AboutCompany = ({baseUrl}) => {
 							<li>
 								<div className="team-mates__image">
 									<img src={getPath('img/footer/team-2.png')}
-									     alt="image"/>
+											 alt="image"/>
 								</div>
 							</li>
 							<li>
@@ -97,7 +97,7 @@ export const AboutCompany = ({baseUrl}) => {
 							<li>
 								<div className="team-mates__image">
 									<img src={getPath('img/footer/team-3.png')}
-									     alt="image"/>
+											 alt="image"/>
 								</div>
 							</li>
 							<li>
@@ -113,7 +113,7 @@ export const AboutCompany = ({baseUrl}) => {
 							<li>
 								<div className="team-mates__image">
 									<img src={getPath('img/footer/team-4.png')}
-									     alt="image"/>
+											 alt="image"/>
 								</div>
 							</li>
 							<li>
@@ -133,6 +133,6 @@ export const AboutCompany = ({baseUrl}) => {
 	);
 };
 AboutCompany.propTypes = {
-	baseUrl: PropTypes.string.isRequired,
+	baseUrl : PropTypes.string.isRequired,
 };
 

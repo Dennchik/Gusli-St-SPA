@@ -1,4 +1,4 @@
-import {buildSwiper} from '../layouts/build-swiper.js';
+import { buildSwiper } from '../layouts/build-swiper.js';
 
 buildSwiper('._swiper');
 
@@ -7,14 +7,14 @@ import Swiper from 'swiper/bundle';
 
 //*  ------------------------- import styles bundle ----------------------------
 export function mainSlide(
-	mainslide = '.main-slide__body',
+	mainSlide = '.main-slide__body',
 	pagination = '.main-slide__pagination',
 	// scrollbar = '',
 	// nextEl = '',
 	// prevEl = '',
 ) {
-	if (mainslide) {
-		new Swiper(mainslide, {
+	if (mainSlide) {
+		new Swiper(mainSlide, {
 			// autoplay: {
 			// 	delay: 7000,
 			// 	disableOnInteraction: true,

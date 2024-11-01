@@ -1,4 +1,5 @@
 import React from 'react';
+import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
 //* ----------------------------------------------------------------------------
 export const AboutCompany = () => {
 	return (
@@ -22,7 +23,7 @@ export const AboutCompany = () => {
 				</div>
 				<div className='about-company__footer'>
 					<a className='about-company__button'
-					   href={'pages/about.html'}>читать всё</a>
+						 href={'pages/about.html'}>читать всё</a>
 				</div>
 			</div>
 			<div className="about-company__column el-2">
@@ -48,8 +49,8 @@ export const AboutCompany = () => {
 				</div>
 				<div className='about-company__footer'>
 					<a className='about-company__button'
-					   href="#"
-					   type='button'>читать всё</a>
+						 href="#"
+						 type='button'>читать всё</a>
 				</div>
 			</div>
 			<div className="about-company__column el-3">
@@ -59,8 +60,10 @@ export const AboutCompany = () => {
 						<ul className="team-mates__list">
 							<li>
 								<div className="team-mates__image">
-									<img src={'@@webRoot/img/footer/team-1.png'}
-									     alt="image"/>
+									<picture> {isWebpSupported()
+										? <img src={'img/footer/team-1.webp'} alt="image" />
+										: <img src={'img/footer/team-1.png'} alt='image' />}
+									</picture>
 								</div>
 							</li>
 							<li>
@@ -76,8 +79,11 @@ export const AboutCompany = () => {
 						<ul className="team-mates__list">
 							<li>
 								<div className="team-mates__image">
-									<img src={'@@webRoot/img/footer/team-2.png'}
-									     alt="image"/>
+									<picture>
+										{isWebpSupported()
+											? <img src={'img/footer/team-2.webp'} alt='image' />
+											: <img src={'img/footer/team-2.png'} alt='image' />}
+									</picture>
 								</div>
 							</li>
 							<li>
@@ -92,8 +98,11 @@ export const AboutCompany = () => {
 						<ul className="team-mates__list">
 							<li>
 								<div className="team-mates__image">
-									<img src={'@@webRoot/img/footer/team-3.png'}
-									     alt="image"/>
+									<picture>
+										{isWebpSupported()
+											? <img src={'img/footer/team-3.webp'} alt="image" />
+											: <img src={'img/footer/team-3.png'} alt="image" />}
+									</picture>
 								</div>
 							</li>
 							<li>
@@ -108,8 +117,11 @@ export const AboutCompany = () => {
 						<ul className="team-mates__list">
 							<li>
 								<div className="team-mates__image">
-									<img src={'@@webRoot/img/footer/team-4.png'}
-									     alt="image"/>
+									<picture>
+										{isWebpSupported()
+											? <img src={'img/footer/team-4.webp'} alt="image" />
+											: <img src={'img/footer/team-4.png'} alt="image" />}
+									</picture>
 								</div>
 							</li>
 							<li>

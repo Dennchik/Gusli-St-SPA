@@ -1,16 +1,17 @@
 @use '../core/all' as *;
+
 .page {
-	height: 100%;
 	overflow: hidden;
+	height: 100%;
 
 	// .page__header
 	&__header {
 		position: fixed;
-		top: 0;
-		left: 0;
-
-		width: 100%;
 		z-index: 11;
+		top: 0;
+
+		left: 0;
+		width: 100%;
 		height: 10rem;
 	}
 
@@ -18,26 +19,25 @@
 	&__fade-in {
 		@include screen-920 {
 			position: fixed;
-			opacity: 0;
-			right: 0;
-			top: 10rem;
 			z-index: 19;
-			transform: translate3d(300px, 0, 0);
+			top: 10rem;
+			right: 0;
+			visibility: hidden;
 			padding: 1.5rem 3rem;
+			transition: transform 0.5s,
+			opacity 0.5s ease-in-out;
+			transform: translate3d(300px, 0, 0);
+			opacity: 0;
 			border: 1px $neon-blue-dark;
 			border-style: none none solid solid;
 			border-radius: 0 0 0 6px;
 			box-shadow: 0 1px 10px #000;
-			visibility: hidden;
-			transition:
-				transform 0.5s,
-				opacity 0.5s ease-in-out;
 
 			&._active {
 				display: flex;
+				visibility: visible;
 				transform: translate3d(0, 0, 0);
 				opacity: 1;
-				visibility: visible;
 			}
 			&.with-border {
 				background: linear-gradient(to right, #271e4d 60%, #1a1530);
@@ -45,21 +45,23 @@
 		}
 	}
 
-	// .page__content
+	// .page__main-content
 	&__main-content {
 		position: relative;
-		inset: 0;
-		height: 100%;
-		width: 100%;
 		z-index: 8;
+		width: 100%;
+		height: 100%;
+		inset: 0;
 	}
+
 }
 
 .main-content {
+
 	// .main-content__content
 	&__content {
 		position: relative;
-		@extend .gradient-services;
+		// @extend .gradient-services;
 	}
 
 	// .main-content__slide
@@ -71,18 +73,20 @@
 		&::before {
 			left: 0;
 		}
+
 		&::after {
 			right: 0;
 			@extend .gradient-border-right;
 		}
+
 		&::before,
 		&::after {
-			content: '';
 			position: absolute;
 			z-index: 10;
 			bottom: 0;
 			width: 100%;
 			height: 2px;
+			content: '';
 		}
 	}
 
@@ -90,6 +94,7 @@
 	&__services {
 		position: relative;
 		z-index: 6;
+		overflow: hidden;
 	}
 
 	// .main-content__footer
@@ -99,17 +104,33 @@
 		@extend .gradient-services;
 	}
 
-	// .main-content__equalizer
-	&__equalizer {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		top: 100px;
-		bottom: 200px;
-		margin: auto;
-		left: -1;
-		right: -1;
-		display: flex;
-		align-items: center;
+	//. main-content__partners
+	&__partners {
+		backdrop-filter: blur(3px);
+
+		&::before {
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			content: '';
+			background: linear-gradient(to left top, #8164ff 40%, rgb(42, 53, 20) 70%);
+		}
+
+		@extend .gradient-services;
 	}
+
+	//.main-content__equalizer
+	/* 	&__equalizer {
+			position: absolute;
+			top: 100px;
+			right: -1;
+			bottom: 200px;
+			left: -1;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			margin: auto;
+		} */
 }
+
