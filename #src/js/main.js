@@ -1,4 +1,4 @@
-import loaded from './modules/preloader.js';
+import loaded from './assets/preloader.js';
 
 loaded('.preloader');
 
@@ -6,7 +6,8 @@ import dynamicAdaptive from './libraries/move-elements.js';
 
 dynamicAdaptive();
 
-// import returnToSavedPosition from './modules/return-position.js';
+// import returnToSavedPosition from './assets/return-position.js';
+//
 // returnToSavedPosition();
 //* ----------------------------------------------------------------------------
 // document.addEventListener('DOMContentLoaded', function () {

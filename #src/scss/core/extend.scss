@@ -1,5 +1,38 @@
 @use 'variables' as *;
 @use 'mixins.scss' as *;
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 6rem;
+
+	.swiper-pagination-bullet {
+		// position: absolute;
+		width: 15px;
+		height: 15px;
+		content: '';
+		transition: background .5s ease-in-out;
+		border-radius: 50%;
+		background: #2a3514;
+
+		&:not(:last-child) {
+			margin-right: 2rem;
+		}
+	}
+
+	.swiper-pagination-bullet-active {
+		width: 12px;
+		height: 12px;
+		content: '';
+		transition: scale .5s ease-in-out;
+		border-radius: 50%;
+		background: #9acd32;
+		scale: 1.2;
+	}
+}
+
 // @import '_variables.scss';
 .grad_underline {
 	/* Определяем фоновые изображения */

@@ -83,6 +83,7 @@
 	// .services__content
 	&__content {
 		width: 100%;
+		padding: 5rem 0 8rem;
 	}
 
 	// .services__offer
@@ -97,7 +98,6 @@
 		position: relative;
 		display: flex;
 		justify-content: space-between;
-		padding: 10rem 0;
 		gap: 2.5rem;
 
 		@include screen-490 {
@@ -160,6 +160,7 @@
 	// .services-slide__content
 	&__content {
 		overflow: hidden;
+		border-radius: 5px;
 	}
 
 	// .services-slide__image
@@ -243,6 +244,11 @@
 				stroke-width: 1px;
 			}
 		}
+	}
+
+	// .services-slide__pagination
+	&__pagination {
+		@extend .pagination;
 	}
 }
 

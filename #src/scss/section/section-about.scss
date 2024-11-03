@@ -1,9 +1,6 @@
 @use '../core/all' as *;
 
 .about {
-	position: relative;
-	width: 100%;
-	height: 100%;
 
 	// .about__bg-image
 	&__bg-image {
@@ -11,7 +8,7 @@
 		top: 0;
 		right: 0;
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 
 		img {
 			opacity: 0.4;

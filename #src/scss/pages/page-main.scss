@@ -4,6 +4,54 @@
 	overflow: hidden;
 	height: 100%;
 
+	//. page__aside
+	&__aside {
+		position: fixed;
+		z-index: 13;
+		right: 0;
+		bottom: 20rem;
+		width: 45px;
+		padding-left: 1rem;
+
+		i {
+			box-shadow: 0 0 5px $neon-blue;
+			text-shadow: 2px 2px 3px #000;
+		}
+
+		._button {
+			font-size: 3.8rem;
+			position: absolute;
+			z-index: 13;
+			top: 50%;
+			left: 0;
+			width: 35px;
+			height: 35px;
+			margin-right: 1rem;
+			cursor: pointer;
+			transition: all 0.5s ease-in-out; /* Плавное изменение фона */
+			color: $neon-blue;
+			border-radius: 50%;
+			background: $black-color;
+
+			&:hover {
+				animation: fadeInBackground;
+				box-shadow: 0 0 4px $neon-blue;
+			}
+
+		}
+
+		&._rotate {
+			i {
+				text-shadow: -2px -2px 3px #000;
+				scale: -1;
+			}
+
+			._button {
+				color: $neon-blue-dark;
+			}
+		}
+	}
+
 	// .page__header
 	&__header {
 		position: fixed;
@@ -57,6 +105,12 @@
 }
 
 .main-content {
+	// . main-content__about
+	&__about {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+	}
 
 	// .main-content__content
 	&__content {
@@ -134,3 +188,11 @@
 		} */
 }
 
+@keyframes fadeInBackground {
+	0% {
+		background: rgb(28, 21, 63);
+	}
+	100% {
+		background: $black-color;
+	}
+}

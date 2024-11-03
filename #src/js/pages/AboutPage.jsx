@@ -14,7 +14,7 @@ export const AboutPage = () => {
 	}, []); // Этот эффект выполнится один раз при монтировании страницы
 	return (
 		<>
-			<div className="main-content__aboute">
+			<div className="main-content__about">
 				<About />
 			</div>
 

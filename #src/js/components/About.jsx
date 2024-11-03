@@ -1,7 +1,6 @@
-import React, {useEffect, useRef, useCallback, useState} from 'react';
-import {isWebpSupported} from 'react-image-webp/dist/utils/index.js';
-
-// -----------------------------------------------------------------------------
+import React, { useEffect, useRef, useCallback, useState } from 'react';
+import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
+//* ----------------------------------------------------------------------------
 export const About = () => {
 	const [isContentExpanded, setIsContentExpanded] = useState(
 		window.innerWidth > 920);
@@ -75,6 +74,7 @@ export const About = () => {
 	// 	};
 	// });
 
+
 	return (
 		<div className="about">
 			<div className="about__bg-image _ibg">
@@ -82,9 +82,9 @@ export const About = () => {
 					<picture>
 						{isWebpSupported()
 							? <img className='bg' src={'./img/about/ab-img-01.webp'}
-										 alt="image"/>
+										 alt="image" />
 							: <img className='bgs' src={'./img/about/ab-img-01.png'}
-										 alt="image"/>}
+										 alt="image" />}
 					</picture>
 				</section>
 			</div>

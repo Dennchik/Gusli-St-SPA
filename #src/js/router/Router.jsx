@@ -9,10 +9,15 @@ import {
 	tlServices2,
 } from '../animations/animations.jsx';
 import ScrollToTop from '../assets/ScrollToTop.js';
-import { MenuFloat } from '../components/Menu-float.jsx';
+import { TransitionProvider } from '../context/TransitionContext.jsx';
+import TransitionComponent from '../components/Transition.jsx';
+
+import { MenuFloat } from '../modules/Menu-float.jsx';
 import { AboutPage } from '../pages/AboutPage.jsx';
 import { HomePage } from '../pages/HomePage.jsx';
 import { ServicesPage } from '../pages/ServicesPage.jsx';
+
+import returnToSavedPosition from '../assets/return-position.js';
 
 const baseUrl = '.';
 
@@ -39,24 +44,7 @@ export default function Router() {
 			dependencies: [location],
 		},
 	);
-
-	useEffect(() => {
-		const smoother = ScrollSmoother.get();
-		if (smoother) {
-			smoother.effects('.services-slide__column', {
-				speed: (i) => {
-					return window.matchMedia('(min-width:730px)').matches
-						? i % 2 === 1
-							? 1.15
-							: 1
-						: i % 2 === 0
-							? 0.9
-							: 1.15;
-				},
-			});
-		}
-	}, [location.pathname, isHomepage]);
-
+ 
 	useEffect(() => {
 		if (isHomepage) {
 			// Проверяем, если .services__title существует перед запуском анимации
@@ -88,6 +76,10 @@ export default function Router() {
 
 		prevLocation.current = location.pathname; // Обновляем предыдущее значение
 	}, [location.pathname, isHomepage]);
+	useEffect(() => {
+
+		returnToSavedPosition();
+	}, []);
 
 	return (
 		<>
@@ -95,17 +87,34 @@ export default function Router() {
 			<main className="page__main-content">
 				<div className="main-content" id="wrapper">
 					<div className="main-content__content" id="content">
-						<Routes>
-							<Route path="/" element={<HomePage />} />
-							<Route path="/about" element={<AboutPage />} />
-							<Route path="/services" element={<ServicesPage />} />
-						</Routes>
+						<TransitionProvider>
+							<Routes>
+								<Route path="/" element={
+									<TransitionComponent>
+										<HomePage />
+									</TransitionComponent>
+								} />
+								<Route path="/about" element={
+									<TransitionComponent>
+										<AboutPage />
+									</TransitionComponent>
+								} />
+								<Route path="/services" element={
+									<TransitionComponent>
+										<ServicesPage />
+									</TransitionComponent>
+								} />
+							</Routes>
+						</TransitionProvider>
 					</div>
 				</div>
 			</main>
-			<page__aside>
+			<div className="page__menu-float">
 				<MenuFloat baseUrl={baseUrl} />
-			</page__aside>
+			</div>
+			<div className="page__aside" id={'scrollButton'}>
+				<i className="icon-angle-down _button"></i>
+			</div>
 		</>
 	);
 }

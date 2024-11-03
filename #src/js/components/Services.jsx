@@ -1,21 +1,24 @@
 import React, { useEffect, useRef } from 'react';
 import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
+import { useLocation } from 'react-router-dom';
 import { animationSvgLine, animationSvgText } from '../animations/anime-js.jsx';
 import { servicesSlide } from '../assets/services-slide.js';
 import { buildSwiper } from '../layouts/build-swiper.js';
 
+import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
+
 //* ----------------------------------------------------------------------------
 export const Services = () => {
+	const location = useLocation();
+	const isHomepage = location.pathname === '/';
+
 	useEffect(() => {
 		const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 		const initSwiper = document.querySelector('.services-slide__body');
 		if (isMobile) {
-			console.log('mobile');
 			initSwiper.classList.add('_swiper');
 			buildSwiper();
 			servicesSlide();
-		} else {
-			console.log('no mobile');
 		}
 	}, []);
 
@@ -54,9 +57,28 @@ export const Services = () => {
 		};
 	}, []);
 
+	useEffect(() => {
+		const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+		const smoother = ScrollSmoother.get();
+		if (smoother) {
+			if (!isMobile || innerWidth > 1024) {
+				smoother.effects('.services-slide__column', {
+					speed: (i) => {
+						return window.matchMedia('(min-width:730px)').matches
+							? i % 2 === 1
+								? 1.15
+								: 1
+							: i % 2 === 0
+								? 0.9
+								: 1.15;
+					},
+				});
+			}
+		}
+	}, [location.pathname, isHomepage]);
 	return (
 		<div className="services key-object">
-			
+
 			<div className="services__body _container">
 				<div className="services__title">Наши услуги</div>
 				<div className="services__content">
@@ -595,6 +617,7 @@ export const Services = () => {
 								</div>
 							</div>
 						</div>
+						<div className="services-slide__pagination"></div>
 					</div>
 				</div>
 				<div className="services__offer offer-container">

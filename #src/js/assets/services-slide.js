@@ -6,6 +6,7 @@ import Swiper from 'swiper/bundle';
 
 export function servicesSlide(
 	servicesSlide = '.services-slide__body',
+	pagination = '.services-slide__pagination',
 	// scrollbar = '',
 	// nextEl = '',
 	// prevEl = '',
@@ -19,6 +20,10 @@ export function servicesSlide(
 			// mousewheel: true,
 			// centeredSlides: true,
 			// slidesPerView: 5,
+			pagination: {
+				el: pagination,
+				clickable: true,
+			},
 			breakpoints: {
 				320: {
 					slidesPerView: 1,

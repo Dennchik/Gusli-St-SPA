@@ -1,20 +1,20 @@
 import React, { useEffect, useRef } from 'react';
+import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
 import parallaxEffect from '../animations/parallax.jsx';
+import { Footer } from '../components/Footer.jsx';
 import { MainSlide } from '../components/MainSlide.jsx';
 import { Services } from '../components/Services.jsx';
-import { Partners } from '../components/Partners.jsx';
-import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
-import { Footer } from '../components/Footer.jsx';
 //* ----------------------------------------------------------------------------
 const baseUrl = '.';
 
 export const HomePage = () => {
 	const container = useRef();
-
+	//* Этот эффект выполнится один раз при монтировании страницы
 	useEffect(() => {
 		parallaxEffect();
-		window.scrollTo(0, 0); // Сброс прокрутки при рендеринг страницы
-	}, []); // Этот эффект выполнится один раз при монтировании страницы
+		//* Сброс прокрутки при рендеринг страницы
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>

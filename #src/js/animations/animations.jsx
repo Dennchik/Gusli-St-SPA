@@ -10,7 +10,6 @@ ScrollTrigger.config({ignoreMobileResize: true});
 
 //* ----------------------- Создание ScrollTrigger -----------------------------
 export function refreshScrollTrigger() {
-	console.log('refreshScrollTrigger');
 	return ScrollTrigger.refresh();
 }
 

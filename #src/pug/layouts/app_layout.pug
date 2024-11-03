@@ -1,4 +1,4 @@
-include ../includes/mixins 
+include ../includes/mixins
 doctype html
 html(lang="ru")
 	head
@@ -7,17 +7,16 @@ html(lang="ru")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		meta(name="description" content="Краткое описание документа")
 		meta(name="keywords" content="keywords-ключевые слова для поиска")
-		//- meta(http-equiv="Content-Security-Policy", content="default-src \'self\' \'unsafe-inline\'")
 		block link
 			link(rel="icon" type="image/icon" href="@@webRoot/img/icons/icon-logo.ico")
 			link(rel="stylesheet" type="text/css" href="@@webRoot/css/main.min.css")
 		block script
-			script(defer="defer" type="text/javascript" src="@@webRoot/js/main.min.js") 
+			script(defer="defer" type="text/javascript" src="@@webRoot/js/main.min.js")
 
-			
+
 		block title
 		- var text
-			title #{text}
+		title #{text}
 
 	body
 		include ../modules/preloader

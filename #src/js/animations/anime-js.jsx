@@ -6,6 +6,7 @@ export function timeLineHeaderItem() {
 		duration: 750,
 	});
 	timeline.add({
+		targets: '.header__item',
 		opacity: [0, 1],
 		translateY: [-100, 0],
 		delay: anime.stagger(100, {start: 100}),

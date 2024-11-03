@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import PropTypes from 'prop-types';
-// import { initSectionTriggerMove } from '../animations/animation-index.jsx';
+import { CustomLink } from '../assets/CustomLink.js';
+// import { initSectionTriggerMove } from '../animations/animation-Router.jsx';
 
-export const MenuFloat = ({baseUrl}) => {
+export const MenuFloat = () => {
 	const [offset, setOffset] = useState(-100);
 	useEffect(() => {
 
@@ -35,10 +36,10 @@ export const MenuFloat = ({baseUrl}) => {
 				menuFloatTop.classList.toggle('_is-open');
 			});
 	}, []);
-
-	const getPath = (filename) => {
-		return `${baseUrl}/${filename}`;
-	};
+	//
+	// const getPath = (filename) => {
+	// 	return `${baseUrl}/${filename}`;
+	// };
 
 	return (
 		<nav className="menu-float">
@@ -55,24 +56,24 @@ export const MenuFloat = ({baseUrl}) => {
 													<h4>Inspiration</h4>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link"
-														 href="">Видео</a>
+													<CustomLink className="main-menu__menu-link"
+																			to="/video">Видео</CustomLink>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link"
-														 href="">Звук</a>
+													<CustomLink className="main-menu__menu-link"
+																			to="/sound">Звук</CustomLink>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link"
-														 href="">Текст</a>
+													<CustomLink className="main-menu__menu-link"
+																			to="/text">Текст</CustomLink>
 												</li>
 												<li className="main-menu__menu-link">
 													<a className="main-menu__menu-link"
 														 href="">Ивенты</a>
 												</li>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link"
-														 href="">Услуги</a>
+													<CustomLink className="main-menu__menu-link"
+																			to="/services">Услуги</CustomLink>
 												</li>
 											</ul>
 										</div>
@@ -82,10 +83,10 @@ export const MenuFloat = ({baseUrl}) => {
 													<h4>w.</h4>
 												</div>
 												<li className="main-menu__menu-link">
-													<a className="main-menu__menu-link"
-														 href={getPath('pages/about.html')}>
+													<CustomLink className="main-menu__menu-link"
+																			to="/about">
 														Компания
-													</a>
+													</CustomLink>
 												</li>
 												<li className="main-menu__menu-link">
 													<a className="main-menu__menu-link"
@@ -124,10 +125,10 @@ export const MenuFloat = ({baseUrl}) => {
 								<div className="menu-float__content">
 									<div className="menu-float__nav">
 										<div className="menu-float__menu-link menu-float__menu-link--home">
-											<a className="menu-float__link"
-												 href={getPath('index.html')}>
+											<CustomLink className="menu-float__link"
+																	to="/">
 												<i className="icon-home"></i>
-											</a>
+											</CustomLink>
 										</div>
 										<div className="menu-float__menu-link menu-float__menu-link--services">
 											<Link className="menu-float__link"
@@ -158,7 +159,7 @@ export const MenuFloat = ({baseUrl}) => {
 								</div>
 							</div>
 							<div className="menu-float__layout menu-float__layout--button">
-								<div className="menu-float__content">
+								<div className="menu-float__button">
 									<div className="burger-button">
 										<div className="burger-button__items">
 											<svg viewBox="10 6 44 36">

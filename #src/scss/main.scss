@@ -5,7 +5,6 @@
 @use 'modules/parallax';
 // todo --------------------------- Assets -------------------------------------
 @use 'assets/burger-button';
-@use 'assets/button';
 @use 'assets/menu-float';
 // todo --------------------------- layout -------------------------------------
 @use 'layouts/bem-block';
@@ -22,8 +21,8 @@
 //todo ---------------------------- Default fonts ------------------------------
 
 // &display=swap&subset=cyrillic-ext
-// @import url('https://fonts.googleapis.com/css?family=Oswald:300,regular,500,600,700&display=swap&subset=cyrillic-ext');
-// @import url('https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,regular,500,600,700&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap&subset=cyrillic-ext');
 // todo --------------------------- Classes ------------------------------------
 // #region
 .wrapper {

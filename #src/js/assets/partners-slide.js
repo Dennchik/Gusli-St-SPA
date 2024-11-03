@@ -32,7 +32,7 @@ export function partnersSlide(
 					slidesPerView: 1,
 				},
 				690: {
-					slidesPerView: 2,
+					slidesPerView: 3,
 				}
 			}
 		});
