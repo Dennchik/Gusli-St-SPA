@@ -32,7 +32,7 @@ export const Partners = () => {
 										</div>
 										<div className="content-slide__text">Советский и
 											российский актёр, кинорежиссёр, сценарист, продюсер,
-											телеведущий и др.
+											телеведущий.
 										</div>
 									</div>
 								</div>
@@ -52,7 +52,7 @@ export const Partners = () => {
 										</div>
 										<div className="content-slide__text">
 											Певица, композитор, поэтесса. Родилась в г. Обнинск.
-											Закончив гимназию и муз.школу поступила в МСИ и др.
+											Закончив гимназию и муз.школу поступила в МСИ.
 										</div>
 									</div>
 								</div>
@@ -68,10 +68,11 @@ export const Partners = () => {
 										</picture>
 									</div>
 									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Иеромонах Фотий
+										<div className="content-slide__title">Епископ Иосиф
 										</div>
-										<div className="content-slide__text">Победитель
-											телевизионного шоу «Голос».
+										<div className="content-slide__text">Викарий патриарха
+											Московского и всея Руси. Наместник Оптиной пустыни.
+											Церковный историк.
 										</div>
 									</div>
 								</div>
@@ -92,7 +93,7 @@ export const Partners = () => {
 										<div className="content-slide__text">Российский
 											боксер-профессионал, выступающий в первой тяжёлой
 											весовой
-											категории. Мастер спорта и др.
+											категории. Мастер спорта.
 										</div>
 									</div>
 								</div>
@@ -109,11 +110,10 @@ export const Partners = () => {
 										</picture>
 									</div>
 									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Епископ Иосиф
+										<div className="content-slide__title">Иеромонах Фотий
 										</div>
-										<div className="content-slide__text">Викарий патриарха
-											Московского и всея Руси. Наместник Оптиной пустыни.
-											Церковный историк
+										<div className="content-slide__text">
+											Победитель телевизионного шоу «Голос».
 										</div>
 									</div>
 								</div>
@@ -135,7 +135,7 @@ export const Partners = () => {
 										<div className="content-slide__text">Российский
 											боксер-профессионал, выступающий в первой тяжёлой
 											весовой
-											категории. Мастер спорта и др.
+											категории. Мастер спорта.
 										</div>
 									</div>
 								</div>

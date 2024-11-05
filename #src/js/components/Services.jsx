@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
 import { useLocation } from 'react-router-dom';
+import {
+	animateTitles, refreshScrollTrigger,
+	tlServices1,
+	tlServices2
+} from '../animations/animations.jsx';
 import { animationSvgLine, animationSvgText } from '../animations/anime-js.jsx';
 import { servicesSlide } from '../assets/services-slide.js';
 import { buildSwiper } from '../layouts/build-swiper.js';
@@ -11,7 +16,7 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
 export const Services = () => {
 	const location = useLocation();
 	const isHomepage = location.pathname === '/';
-
+	const prevLocation = useRef(location.pathname);
 	useEffect(() => {
 		const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 		const initSwiper = document.querySelector('.services-slide__body');
@@ -76,6 +81,39 @@ export const Services = () => {
 			}
 		}
 	}, [location.pathname, isHomepage]);
+
+	useEffect(() => {
+		if (isHomepage) {
+			// Проверяем, если .services__title существует перед запуском анимации
+			if (document.querySelector('.services__title')) {
+				animateTitles(
+					'.services__title',
+					'.services__title',
+					'.services__title',
+					'=150',
+					'=150',
+				);
+			}
+
+			if (document.querySelector('.offer-container__title')) {
+				animateTitles(
+					'.offer-container__title',
+					'.offer-container__title',
+					'.offer-container__title',
+					'=150',
+					'=150',
+				);
+			}
+
+			tlServices1();
+			tlServices2();
+
+			refreshScrollTrigger();
+		}
+
+		prevLocation.current = location.pathname; // Обновляем предыдущее значение
+	}, [location.pathname, isHomepage]);
+
 	return (
 		<div className="services key-object">
 

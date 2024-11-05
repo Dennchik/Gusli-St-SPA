@@ -1,13 +1,7 @@
 import { useGSAP } from '@gsap/react';
 import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import {
-	animateTitles,
-	refreshScrollTrigger,
-	tlServices1,
-	tlServices2,
-} from '../animations/animations.jsx';
 import ScrollToTop from '../assets/ScrollToTop.js';
 import { TransitionProvider } from '../context/TransitionContext.jsx';
 import TransitionComponent from '../components/Transition.jsx';
@@ -23,8 +17,6 @@ const baseUrl = '.';
 
 export default function Router() {
 	const location = useLocation();
-	const isHomepage = location.pathname === '/';
-	const prevLocation = useRef(location.pathname);
 
 	// Инициализация ScrollSmoother
 	useGSAP(
@@ -44,38 +36,7 @@ export default function Router() {
 			dependencies: [location],
 		},
 	);
- 
-	useEffect(() => {
-		if (isHomepage) {
-			// Проверяем, если .services__title существует перед запуском анимации
-			if (document.querySelector('.services__title')) {
-				animateTitles(
-					'.services__title',
-					'.services__title',
-					'.services__title',
-					'=150',
-					'=150',
-				);
-			}
 
-			if (document.querySelector('.offer-container__title')) {
-				animateTitles(
-					'.offer-container__title',
-					'.offer-container__title',
-					'.offer-container__title',
-					'=150',
-					'=150',
-				);
-			}
-
-			tlServices1();
-			tlServices2();
-
-			refreshScrollTrigger();
-		}
-
-		prevLocation.current = location.pathname; // Обновляем предыдущее значение
-	}, [location.pathname, isHomepage]);
 	useEffect(() => {
 
 		returnToSavedPosition();

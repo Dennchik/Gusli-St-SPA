@@ -10,7 +10,6 @@ html {
 		family: $font-default;
 	}
 	height: 100%;
-	// overflow-x: hidden;
 	counter-reset: heading;
 	letter-spacing: 1.1px;
 	color: var(--font-body-color);
@@ -26,7 +25,6 @@ body {
 	// overscroll-behavior: none;
 	font: 1.6rem/1.6 $font-default;
 	@extend .gradient-services;
-
 	@include screen-490 {
 		font: 1.5rem/1.5 $font-default;
 	}

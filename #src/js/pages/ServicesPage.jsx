@@ -10,11 +10,10 @@ export const ServicesPage = () => {
 	useEffect(() => {
 		parallaxEffect();
 		window.scrollTo(0, 0); // Сброс прокрутки при рендеринг страницы
-		// console.log(window.scrollTo, 'scroll');
 	}, []); // Этот эффект выполнится один раз при монтировании страницы
 	return (
 		<>
-			<div className="main-content__aboute">
+			<div className="main-content__about">
 				<About />
 			</div>
 

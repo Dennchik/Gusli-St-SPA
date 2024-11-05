@@ -60,8 +60,8 @@
 	0 1px; /* Второе изображение */
 }
 
-.gradient {
-	background: linear-gradient(to left, #0b0813, #392b7c 50%, #0c0814 100%);
+.gradient-black {
+	background: linear-gradient(-45deg, #20193c, #020101 70%);
 }
 
 .gradient-default {
@@ -90,7 +90,7 @@
 }
 
 .gradient-services {
-	background: linear-gradient(to right, #0b0813 20%, #1c153f 50%, #0b0813 80%);
+	background: linear-gradient(to right, #050202ff 20%, #1c153f 50%, #050202ff 80%);
 }
 
 .gradient-title {
