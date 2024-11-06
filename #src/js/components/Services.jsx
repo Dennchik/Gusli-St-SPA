@@ -2,12 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
 import { useLocation } from 'react-router-dom';
 import {
-	animateTitles, refreshScrollTrigger,
-	tlServices1,
-	tlServices2
+	refreshScrollTrigger,
+	// animateTitles,
+	// tlServices1,
+	// tlServices2
 } from '../animations/animations.jsx';
 import { animationSvgLine, animationSvgText } from '../animations/anime-js.jsx';
-import { servicesSlide } from '../assets/services-slide.js';
+import { servicesSlide } from '../layouts/services-slide.js';
 import { buildSwiper } from '../layouts/build-swiper.js';
 
 import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
@@ -86,27 +87,29 @@ export const Services = () => {
 		if (isHomepage) {
 			// Проверяем, если .services__title существует перед запуском анимации
 			if (document.querySelector('.services__title')) {
-				animateTitles(
-					'.services__title',
-					'.services__title',
-					'.services__title',
-					'=150',
-					'=150',
-				);
+				// animateTitles(
+				// 	'.services__title',
+				// 	'.services__title',
+				// 	'.services__title',
+				// 	'=150',
+				// 	'=150',
+				// );
 			}
 
 			if (document.querySelector('.offer-container__title')) {
-				animateTitles(
-					'.offer-container__title',
-					'.offer-container__title',
-					'.offer-container__title',
-					'=150',
-					'=150',
-				);
+				// animateTitles(
+				// 	'.offer-container__title',
+				// 	'.offer-container__title',
+				// 	'.offer-container__title',
+				// 	'=150',
+				// 	'=150',
+				// );
+			}
+			if (document.querySelector('.offer-container__body')) {
+				// tlServices1();
+				// tlServices2();
 			}
 
-			tlServices1();
-			tlServices2();
 
 			refreshScrollTrigger();
 		}
@@ -116,7 +119,20 @@ export const Services = () => {
 
 	return (
 		<div className="services key-object">
-
+			<div className="material-parallax parallax">
+				<div className="parallax__image">
+					<picture>
+						{isWebpSupported() ? (
+								<img className="parallax__image-services bg"
+										 src={'img/main/body/prl_img.webp'}
+										 alt="image" />
+							)
+							: (<img className="bgs" src={'img/main/body/prl_img.png'}
+											alt="image" />
+							)}
+					</picture>
+				</div>
+			</div>
 			<div className="services__body _container">
 				<div className="services__title">Наши услуги</div>
 				<div className="services__content">

@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { SwitchTransition, Transition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
+import { SwitchTransition, Transition } from 'react-transition-group';
 import gsap from 'gsap';
 import PropTypes from 'prop-types';
-
 import TransitionContext from '../context/TransitionContext.jsx';
 
 const TransitionComponent = ({children}) => {

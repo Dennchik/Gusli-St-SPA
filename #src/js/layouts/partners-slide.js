@@ -1,4 +1,4 @@
-import { buildSwiper } from '../layouts/build-swiper.js';
+import { buildSwiper } from './build-swiper.js';
 
 buildSwiper('._swiper');
 import Swiper from 'swiper/bundle';
@@ -19,7 +19,7 @@ export function partnersSlide(
 			grabCursor: true,
 			// mousewheel: true,
 			// centeredSlides: true,
-			// slidesPerView: 2,
+			slidesPerView: 3,
 			pagination: {
 				el: pagination,
 				clickable: true,
@@ -28,10 +28,14 @@ export function partnersSlide(
 				// 1) + "</span>"; },
 			},
 			breakpoints: {
-				320: {
+				260: {
 					slidesPerView: 1,
 				},
-				690: {
+				491: {
+					slidesPerView: 2,
+				},
+
+				1440: {
 					slidesPerView: 3,
 				}
 			}

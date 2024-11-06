@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
-import { partnersSlide } from '../assets/partners-slide.js';
+import { partnersSlide } from '../layouts/partners-slide.js';
 import { buildSwiper } from '../layouts/build-swiper.js';
 
 export const Partners = () => {
@@ -27,13 +27,10 @@ export const Partners = () => {
 														 alt="Игорь Угольников" />}
 										</picture>
 									</div>
-									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Игорь Угольников
-										</div>
-										<div className="content-slide__text">Советский и
-											российский актёр, кинорежиссёр, сценарист, продюсер,
-											телеведущий.
-										</div>
+									<div className="partners-slide__title"> Игорь Угольников</div>
+									<div className="partners-slide__text">Советский и
+										российский актёр, кинорежиссёр, сценарист, продюсер,
+										телеведущий.
 									</div>
 								</div>
 							</div>
@@ -47,13 +44,10 @@ export const Partners = () => {
 														 alt="Маргарита Калан" />}
 										</picture>
 									</div>
-									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Маргарита Калан
-										</div>
-										<div className="content-slide__text">
-											Певица, композитор, поэтесса. Родилась в г. Обнинск.
-											Закончив гимназию и муз.школу поступила в МСИ.
-										</div>
+									<div className="partners-slide__title">Маргарита Калан</div>
+									<div className="partners-slide__text">
+										Певица, композитор, поэтесса. Родилась в г. Обнинск.
+										Закончив гимназию и муз.школу поступила в МСИ.
 									</div>
 								</div>
 							</div>
@@ -67,13 +61,10 @@ export const Partners = () => {
 														 alt="Иеромонах Фотий" />}
 										</picture>
 									</div>
-									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Епископ Иосиф
-										</div>
-										<div className="content-slide__text">Викарий патриарха
-											Московского и всея Руси. Наместник Оптиной пустыни.
-											Церковный историк.
-										</div>
+									<div className="partners-slide__title">Епископ Иосиф</div>
+									<div className="partners-slide__text">Викарий патриарха
+										Московского и всея Руси. Наместник Оптиной пустыни.
+										Церковный историк.
 									</div>
 								</div>
 							</div>
@@ -87,14 +78,10 @@ export const Partners = () => {
 														 alt="Алексей Егоров" />}
 										</picture>
 									</div>
-									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Алексей Егоров
-										</div>
-										<div className="content-slide__text">Российский
-											боксер-профессионал, выступающий в первой тяжёлой
-											весовой
-											категории. Мастер спорта.
-										</div>
+									<div className="partners-slide__title">Алексей Егоров</div>
+									<div className="partners-slide__text">Российский
+										боксер-профессионал, выступающий в первой тяжёлой
+										весовой категории. Мастер спорта.
 									</div>
 								</div>
 							</div>
@@ -109,12 +96,9 @@ export const Partners = () => {
 															 alt="Епископ Иосиф " />}
 										</picture>
 									</div>
-									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">Иеромонах Фотий
-										</div>
-										<div className="content-slide__text">
-											Победитель телевизионного шоу «Голос».
-										</div>
+									<div className="partners-slide__title">Иеромонах Фотий</div>
+									<div className="partners-slide__text">
+										Победитель телевизионного шоу «Голос».
 									</div>
 								</div>
 							</div>
@@ -128,15 +112,11 @@ export const Partners = () => {
 														 alt="Александр Яковлев" />}
 										</picture>
 									</div>
-									<div className="partners-slide__info content-slide">
-										<div className="content-slide__title">
-											Александр Яковлев
-										</div>
-										<div className="content-slide__text">Российский
-											боксер-профессионал, выступающий в первой тяжёлой
-											весовой
-											категории. Мастер спорта.
-										</div>
+									<div className="partners-slide__title">Александр Яковлев</div>
+									<div className="partners-slide__text">Российский
+										боксер-профессионал, выступающий в первой тяжёлой
+										весовой
+										категории. Мастер спорта.
 									</div>
 								</div>
 							</div>

@@ -60,8 +60,8 @@ export function fadeInSlide() {
 		opacity: [0, 1],
 		translateY: [80, 0],
 		delay: anime.stagger(100, {start: 500}),
-		duration: 1000,
 		easing: 'easeInOutSine',
+		duration: 1000,
 		begin: function (anim) {
 			anim.animatables.forEach(function (animatable) {
 				animatable.target.style.transition = 'opacity 0.3s ease-out';
@@ -82,7 +82,7 @@ export function fadeInSlide() {
 	}, 130);
 }
 
-//* ----------------------------------------------------------------------------
+//* --------------------------- Анимация линий ---------------------------------
 export function animationSvgLine(target, reverse) {
 	const path = target.querySelector('.services-slide__svg .lines path');
 	// Создаем переменную path
@@ -111,7 +111,7 @@ export function animationSvgLine(target, reverse) {
 	});
 }
 
-//* ----------------------------------------------------------------------------
+//* --------------------------- Анимация текста --------------------------------
 export function animationSvgText(target, reverse) {
 	// Создаем переменную path
 	const textPath = target.querySelectorAll(

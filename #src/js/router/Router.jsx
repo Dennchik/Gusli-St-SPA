@@ -53,11 +53,13 @@ export default function Router() {
 								<Route path="/" element={
 									<TransitionComponent>
 										<HomePage />
+										{/* {parallaxEffect()} */}
 									</TransitionComponent>
 								} />
 								<Route path="/about" element={
 									<TransitionComponent>
 										<AboutPage />
+										{/* {parallaxEffect()} */}
 									</TransitionComponent>
 								} />
 								<Route path="/services" element={

@@ -109,9 +109,15 @@
 
 	// .content-body__title
 	&__title {
+		font: 5.4rem/1.6 $font-family-secondary;
+		font-weight: 100;
 		padding-bottom: 2rem;
 		text-transform: uppercase;
 		color: $electric-lime;
+
+		@include minmax-490-1920 {
+			font-size: calc(28px + (54 - 28) * ((100vw - 490px) / (1920 - 490)));
+		}
 	}
 
 	// .content-body__ellipsis

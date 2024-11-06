@@ -139,9 +139,10 @@
 	&__help {
 		font-size: 4.8rem;
 		display: flex;
+		
 		align-items: center;
 		justify-content: center;
-		padding: 5rem 0 5rem;
+		padding: 8rem 0;
 		text-align: center;
 		color: $gray;
 		text-shadow: 3px 3px 10px #000;
@@ -167,7 +168,13 @@
 				}
 			}
 		}
+
+		@include minmax-320-1920 {
+			// padding: calc(px + ( - 80	) * ((100vw - px) / ( - )));
+
+		}
 	}
+
 }
 
 .contacts {

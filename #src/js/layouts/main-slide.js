@@ -1,4 +1,4 @@
-import { buildSwiper } from '../layouts/build-swiper.js';
+import { buildSwiper } from './build-swiper.js';
 
 buildSwiper('._swiper');
 

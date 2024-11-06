@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { isWebpSupported } from 'react-image-webp/dist/utils/index.js';
 import { fadeInSlide } from '../animations/anime-js.jsx';
-import { mainSlide } from '../assets/main-slide.js';
+import { mainSlide } from '../layouts/main-slide.js';
 //* ------------------------ Component's MainSlide -----------------------------
 import { buildSwiper } from '../layouts/build-swiper.js';
 import { AudioPlayer } from './AudioPlayer.jsx';
@@ -77,7 +77,7 @@ export const MainSlide = ({baseUrl}) => {
 							) : (
 								<img
 									src={getPath('img/main/slides/slide_1.jpg')}
-									alt="slide-1"/>
+									alt="slide-1" />
 							)}
 						</picture>
 					</div>
@@ -114,7 +114,7 @@ export const MainSlide = ({baseUrl}) => {
 					</div>
 					<div className="main-slide__content _container">
 						<div className="main-slide__title el-slidetitle">
-							<span>Атмосфера Звука </span>Музыкального Пространства
+							<span>атмосфера звука </span>музыкального пространства
 						</div>
 						<div className="main-slide__text">
 							Мы создаем звуковые шедевры, где&nbsp;каждая нота оживает
@@ -171,7 +171,7 @@ export const MainSlide = ({baseUrl}) => {
 					</div>
 					<div className="main-slide__content _container">
 						<div className="main-slide__title el-slidetitle">
-							<span>Все виды</span> Микширования Звука
+							<span>Все виды</span> микширования звука
 						</div>
 						<div className="main-slide__text">
 							Если вы ищете качественное сведение звука, то в нашей студии есть
@@ -184,7 +184,7 @@ export const MainSlide = ({baseUrl}) => {
 			</div>
 			<div className="main-slide__pagination"></div>
 			<div className="main-slide__media">
-				<AudioPlayer/>
+				<AudioPlayer />
 			</div>
 		</div>
 	);

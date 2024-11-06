@@ -90,30 +90,36 @@
 
 	// .partners-slide__content
 	&__content {
-		display: flex;
+		display: grid;
+		overflow: hidden;
 		height: 100%;
 		border-radius: 10px;
+		grid-template-columns: minmax(150px, min-content) auto;
 		@extend .gradient-spec;
 
-		@include screen-1024 {
-			flex-direction: column;
-		}
 		@include screen-690 {
-			flex-direction: row;
+			grid-template-columns:  minmax(150px, 1fr) !important;
 		}
 	}
 
 	// .partners-slide__image
 	&__image {
-		@include screen-1024 {
-			align-self: flex-start;
+		width: 100%;
+		grid-row: 1 / 3;
+
+		@include screen-768 {
+			grid-row: 1 / 2;
+		}
+
+		@include screen-690 {
+			grid-column: 1 / 1 !important;
 		}
 
 		img {
 			position: relative;
 			overflow: hidden;
-			width: 180px;
-			height: 180px;
+			width: 100%;
+			height: 100%;
 			border-top-left-radius: 10px;
 			border-bottom-right-radius: 50px;
 			border-bottom-left-radius: 10px;
@@ -122,46 +128,46 @@
 		}
 	}
 
-	// .partners-slide__info
-	&__info {
+	// .partners-slide__title
+	&__title {
+		font-size: 2rem;
+		font-weight: 500;
 		display: flex;
-		flex: 1 1 40%;
-		flex-direction: column;
-		width: 100%;
+		align-items: center;
+		padding: 1.5rem;
+		grid-column: 2 / 3;
+
+		@include screen-768 {
+			grid-row: -1 / -1;
+		}
+
+		@include screen-690 {
+			text-align: left;
+			grid-row: 2 / 3 !important;
+			grid-column: 1 / 1;
+		}
+	}
+
+	// .partners-slide__text
+	&__text {
+		font-size: 1.4rem;
 		height: 100%;
-		padding: 1rem 1.5rem;
-		justify-items: center;
+		padding: 1.5rem;
+		text-align: left;
 
-		@include screen-1024 {
-			align-self: flex-end;
-			height: 100%;
-			text-align: right;
+		@include screen-768 {
+			grid-row: 2 / 3;
+			grid-column: 1 / 3;
+		}
 
+		@include screen-690 {
+			grid-row: 3 / 4 !important;
 		}
 	}
 
 	// .partners-slide__pagination
 	&__pagination {
 		@extend .pagination;
-	}
-}
-
-.content-slide {
-	// .content-slide__title
-	&__title {
-		font-size: 2.2rem;
-		font-weight: 600;
-		margin-bottom: 1.5rem;
-		@include screen-690 {
-			text-align: left;
-		}
-	}
-
-	// .content-slide__text
-	&__text {
-		font-size: 1.4rem;
-		height: 100%;
-		text-align: left;
 	}
 }
 

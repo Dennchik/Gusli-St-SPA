@@ -156,7 +156,7 @@
 	&__services {
 		position: relative;
 		z-index: 6;
-		overflow: hidden;
+		// overflow: hidden;
 	}
 
 	// .main-content__footer
@@ -195,7 +195,6 @@
 	&__achievements {
 		position: relative;
 		overflow: hidden;
-		height: 100%;
 		background: linear-gradient(-45deg, #20193c, #050202 90%);
 	}
 
