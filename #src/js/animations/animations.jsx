@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 //* --------------------- Конфигурация - ScrollTrigger -------------------------
 ScrollTrigger.normalizeScroll(false);
-ScrollTrigger.config({ignoreMobileResize: true});
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 //* ----------------------- Создание ScrollTrigger -----------------------------
 export function refreshScrollTrigger() {
@@ -14,12 +14,12 @@ export function refreshScrollTrigger() {
 }
 
 //* -------------------- Уничтожение ScrollSmoother ----------------------------
-// export function destroySmoother(initSmoother) {
-// 	if (initSmoother) {
-// 		/* Уничтожаем экземпляр ScrollSmoother при размонтировании */
-// 		initSmoother.kill();
-// 	}
-// }
+export function destroySmoother(initSmoother) {
+	if (initSmoother) {
+		/* Уничтожаем экземпляр ScrollSmoother при размонтировании */
+		initSmoother.kill();
+	}
+}
 
 //* ----------------------------------------------------------------------------
 export function tlFooterHorizontal() {
